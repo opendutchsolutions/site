@@ -2,7 +2,7 @@
 date: 2026-02-18
 authors: [Hoog-V]
 categories: 
-    - Repair work (Robots)
+    - Repair work
     - Robots
     - Sanbot
 description: >

@@ -7,13 +7,24 @@ categories:
     - Sanbot
 description: >
     Let's try to find Sanbot's deepest secrets
-title: On a Quest to Dump the Sanbot's Tablet ROM – Part 1
+title: On a Quest to find Sanbot's deepest secrets – Part 1
 comments: true
 ---
 
 With the Sanbot repaired in blog posts [#1](00_repairing_sanbot.md) and [#2](01_repairing_sanbot_dock.md), it’s time to address the next bottleneck: the aging tablet inside the robot.
 
 The tablet runs Android 6 and, due to its limited CPU performance and RAM capacity, cannot run newer Android versions. Now that this tablet is roughly eight years old (ancient in Android years), it’s time to uncover its deeper workings and possibly replace it with something that doesn’t struggle to open the settings menu.
+
+
+!!! warning annotate "Legal note"
+
+    This research was conducted on hardware legally owned by the author.
+    All analysis is performed for the purposes of interoperability,
+    repair, and educational research.
+
+    No proprietary firmware or copyrighted software
+    is redistributed on this site.
+
 
 ---
 

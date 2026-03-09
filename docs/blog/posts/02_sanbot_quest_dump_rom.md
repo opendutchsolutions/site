@@ -167,8 +167,6 @@ Boot continued, kernel loaded, Android started… but no interactive U-Boot prom
 
 They locked the UART console in U-Boot.
 
-Rude.
-
 ---
 
 ## Fine. We Bring Our Own U-Boot.

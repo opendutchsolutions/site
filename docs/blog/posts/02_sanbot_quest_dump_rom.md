@@ -97,7 +97,7 @@ After graciously sharing my IP address with the manufacturer, I connected via AD
 
 ```bash
 adb logcat | grep -i http
-````
+```
 
 Which yielded:
 

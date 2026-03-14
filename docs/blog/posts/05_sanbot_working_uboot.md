@@ -17,6 +17,18 @@ However, our custom-compiled U-Boot still didn't detect the **eMMC memory**, whi
 
 The goal of running **Ubuntu Touch** is getting closer and closer. I can't wait…
 
+
+!!! warning annotate "Legal note"
+
+    This research was conducted on hardware legally owned by the author.
+    All analysis is performed for the purposes of interoperability,
+    repair, and educational research.
+
+    No proprietary firmware or copyrighted software
+    is redistributed on this site.
+
+
+
 ## Some backstory
 
 In [part 1](02_sanbot_quest_dump_rom.md) we attempted to run a custom-compiled U-Boot using configuration values we guessed from the **Banana Pi M3**, which is quite similar to this board. Both use the same **SoC, regulators, and memory configuration**, so it seemed like a reasonable starting point.

@@ -160,8 +160,11 @@ And I was rewarded with a U-Boot log:
 U-Boot 2011.09-rc1-00000-g0c9f221-dirty (Jul 08 2017)
 Allwinner Technology
 ```
+Ofcourse, trying the legendary press any key trick seems promising… 
 
-Promising… until it wasn’t.
+![The legendary uboot press any key meme](assets/sanbot_uboot_any_key_mem.png)
+
+until it wasn’t.
 
 Boot continued, kernel loaded, Android started… but no interactive U-Boot prompt. No console. No interruption window.
 

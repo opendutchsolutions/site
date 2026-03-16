@@ -147,9 +147,6 @@ I found references like:
 
 ```
 
-script_get_item
-script_parser_fetch
-sys_config.fex
 ctp_para
 lcd0_para
 wifi_para
@@ -172,7 +169,7 @@ The configuration parser used by the kernel is implemented in:
 
 ```
 
-script_parser.c
+sys_config.c
 
 ```
 

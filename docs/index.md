@@ -1,5 +1,7 @@
 # Welcome
 
+![ODS Logo](ODS_logo.svg)
+
 **OpenDutchSolutions** is a Dutch foundation focused on open software development, open hardware design, and sustainable repair of modern technology.
 
 We build new systems.  

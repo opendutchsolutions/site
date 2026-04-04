@@ -8,63 +8,58 @@ theme:
   - content.action.view
   - content.code.annotate
   - content.code.copy
-  # - content.code.select
-  # - content.footnote.tooltips
-  # - content.tabs.link
   - content.tooltips
-  # - header.autohide
-  # - navigation.expand
   - navigation.footer
   - navigation.indexes
-  # - navigation.instant
-  # - navigation.instant.prefetch
-  # - navigation.instant.progress
-  # - navigation.prune
   - navigation.sections
   - navigation.tabs
-  # - navigation.tabs.sticky
   - navigation.top
   - navigation.tracking
   - search.highlight
   - search.share
   - search.suggest
   - toc.follow
-  # - toc.integrate
+  logo_dark_mode: ODS_thumbnail.svg
+  logo_light_mode: ODS_thumbnail_white.svg
   palette:
   - media: "(prefers-color-scheme)"
     toggle:
-      icon: material/link
+      icon: material/toggle-switch
       name: Switch to light mode
   - media: "(prefers-color-scheme: light)"
     scheme: default
-    primary: indigo
-    accent: indigo
+    primary: custom
+    accent: custom
     toggle:
       icon: material/toggle-switch
       name: Switch to dark mode
   - media: "(prefers-color-scheme: dark)"
     scheme: slate
-    primary: black
-    accent: indigo
+    primary: custom
+    accent: custom
     toggle:
       icon: material/toggle-switch-off
       name: Switch to system preference
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: assets/favicon.png
-  icon:
-    logo: logo
+  favicon: assets/ODS_thumbnail.svg
+  # logo intentionally omitted — handled by overrides/partials/logo.html
+  # Custom color overrides — place this file at docs/stylesheets/ods.css
+extra_css:
+- stylesheets/ods.css
 
 # Plugins
 plugins:
 - blog
+
 markdown_extensions:
 - attr_list
 - md_in_html
 - admonition
 - pymdownx.details
 - pymdownx.superfences
+
 nav:
 - index.md
 - Blog:
@@ -74,9 +69,3 @@ nav:
     - projects/open_source/sanbot/sanbot_hardware_overview.md
 - About us:
   - about us/about_us.md
-
-# nav:
-#   - Blog:
-#     - blog/index.md
-#   - Projects:
-#     - projects/index.md

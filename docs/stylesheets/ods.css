@@ -1,0 +1,28 @@
+/* ODS brand colors for MkDocs Material */
+/* Place this file at: docs/stylesheets/ods.css  */
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #2a7a2a;
+  --md-primary-fg-color--light: #4a9a4a;
+  --md-primary-fg-color--dark:  #1a4a1a;
+  --md-accent-fg-color:         #4a9a4a;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #1a4a1a;
+  --md-primary-fg-color--light: #2a7a2a;
+  --md-primary-fg-color--dark:  #0f2e0f;
+  --md-accent-fg-color:         #4a9a4a;
+}
+
+/* Logo sizing */
+.md-header__button.md-logo img {
+  height: 1.8rem;
+  width: auto;
+}
+
+/* Logo switching — Material sets data-md-color-scheme="default" or "slate" */
+[data-md-color-scheme="default"] #logo_dark_mode  { display: none; }
+[data-md-color-scheme="default"] #logo_light_mode { display: block; }
+[data-md-color-scheme="slate"]   #logo_light_mode { display: none; }
+[data-md-color-scheme="slate"]   #logo_dark_mode  { display: block; }

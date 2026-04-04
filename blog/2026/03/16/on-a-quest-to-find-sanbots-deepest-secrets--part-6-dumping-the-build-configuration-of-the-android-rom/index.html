@@ -1,0 +1,1556 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Let's try to exploit Sanbot's deepest secrets by dumping the build configuration (script.bin / allwinner fex)
+">
+      
+      
+      
+      
+        <link rel="prev" href="../../15/on-a-quest-to-find-sanbots-deepest-secrets--part-5-getting-buildroot-to-work/">
+      
+      
+        <link rel="next" href="../../29/on-a-quest-to-find-sanbots-deepest-secrets--part-7-bringing-up-the-display-pipeline-under-mainline-linux/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/ODS_thumbnail.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>On a Quest to find Sanbot's deepest secrets – Part 6 (Dumping the build configuration of the android rom) - OpenDutchSolutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/ods.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-do-i-need" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="OpenDutchSolutions" class="md-header__button md-logo" aria-label="OpenDutchSolutions" data-md-component="logo">
+      <img id="logo_dark_mode" src="../../../../../ODS_thumbnail.svg" alt="logo">
+<img id="logo_light_mode" src="../../../../../ODS_thumbnail_white.svg" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenDutchSolutions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              On a Quest to find Sanbot's deepest secrets – Part 6 (Dumping the build configuration of the android rom)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Welcome
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../projects/open_source/sanbot/sanbot_hardware_overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../about%20us/about_us/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  About us
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="OpenDutchSolutions" class="md-nav__button md-logo" aria-label="OpenDutchSolutions" data-md-component="logo">
+      <img id="logo_dark_mode" src="../../../../../ODS_thumbnail.svg" alt="logo">
+<img id="logo_light_mode" src="../../../../../ODS_thumbnail_white.svg" alt="logo">
+    </a>
+    OpenDutchSolutions
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/repair-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repair work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/reverse-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reverse engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/robots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robots
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/sanbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sanbot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open source projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Open source projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/open_source/sanbot/sanbot_hardware_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sanbot Elf hardware overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About us
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About us
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about%20us/about_us/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About OpenDutchSolutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-do-i-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What do I need?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-the-firmware-dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading the firmware dump
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-hint-fex-source-code-from-the-bsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The hint! Fex source code from the BSP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#it-was-in-ram-all-the-time-ugh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        It was in RAM all the time... Ugh
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dumping-the-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dumping the configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-information-was-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What information was found
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://avatars.githubusercontent.com/u/95024850" alt="Victor Hogeweij">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          <a href="https://github.com/Hoog-V">Victor Hogeweij</a>
+                        
+                      </strong>
+                      <br>
+                      Creator
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-03-16 00:00:00+00:00" class="md-ellipsis">March 16, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/reverse-engineering/">Reverse engineering</a>, 
+                              <a href="../../../../category/robots/">Robots</a>, 
+                              <a href="../../../../category/sanbot/">Sanbot</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              5 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+
+
+  <h1>On a Quest to find Sanbot's deepest secrets – Part 6 (Dumping the build configuration of the android rom)</h1>
+
+<p><a href="../../15/on-a-quest-to-find-sanbots-deepest-secrets--part-5-getting-buildroot-to-work/">As we now have our own custom buildroot port running on the Sanbot tablet</a>, we ofcourse need the internal screen to be working. </p>
+<p>Which was a long tedious journay with a unexpected twist. Like always things are sometimes easier then I would have thought.</p>
+<div class="admonition warning annotate">
+<p class="admonition-title">Legal note</p>
+<p>This research was conducted on hardware legally owned by the author.
+All analysis is performed for the purposes of interoperability,
+repair, and educational research.</p>
+<p>No proprietary firmware or copyrighted software
+is redistributed on this site.</p>
+</div>
+<h2 id="what-do-i-need">What do I need?</h2>
+<p>To get the LCD working under mainline Linux we need one very specific piece of information:</p>
+<p><strong>The original hardware configuration used by the vendor kernel.</strong></p>
+<p>On modern ARM systems this information lives in a <strong>device tree</strong> (<code>.dtb</code>).<br />
+But as we discovered earlier, the Sanbot tablet is powered by an <strong>Allwinner A83T</strong>, and the vendor kernel is an ancient <strong>3.4 BSP kernel</strong>.</p>
+<p>Those kernels don’t use device trees.</p>
+<p>Instead they rely on a configuration format called <strong>FEX</strong>.</p>
+<p>The workflow looked roughly like this:</p>
+<div class="highlight"><pre><span></span><code>sys_config.fex → script.bin → parsed by kernel
+</code></pre></div>
+<p>The <code>script.bin</code> contains things like:</p>
+<ul>
+<li>LCD panel configuration</li>
+<li>touchscreen controller</li>
+<li>GPIO mappings</li>
+<li>power regulators</li>
+<li>DRAM configuration</li>
+<li>WiFi chip</li>
+<li>I²C buses</li>
+</ul>
+<p>Basically <strong>the entire board layout</strong>.</p>
+<p>Since the immediate goal was getting the internal display working, I was mainly interested in the <strong>LCD parameters</strong>.</p>
+<p>Those usually live in the <code>lcd0_para</code> section of the FEX file and contain values such as:</p>
+<div class="highlight"><pre><span></span><code>[lcd0_para]
+lcd_used = 1
+lcd_driver_name = &quot;some_panel&quot;
+lcd_if = 0
+lcd_x = 720
+lcd_y = 1280
+lcd_dclk_freq = ?
+lcd_pwm_used = ?
+lcd_pwm_freq = ?
+lcd_hbp = ?
+lcd_ht = ?
+lcd_vbp = ?
+lcd_vt = ?
+</code></pre></div>
+<p>Which translates roughly into the parameters a modern <strong>device tree panel driver</strong> expects:</p>
+<ul>
+<li>resolution (x / y)</li>
+<li>pixel clock</li>
+<li>horizontal timing</li>
+<li>vertical timing</li>
+<li>interface type (RGB / LVDS / MIPI DSI)</li>
+<li>backlight control</li>
+<li>reset GPIO</li>
+<li>power regulators</li>
+</ul>
+<p>Without these values the kernel simply has <strong>no idea how to drive the display controller</strong>.</p>
+<p>And on tablets, the LCD panel is almost always a <strong>custom OEM part</strong>, which means guessing those numbers is... not fun.</p>
+<p>So instead of guessing, the plan was simple:</p>
+<blockquote>
+<p>Extract the original vendor configuration.</p>
+</blockquote>
+<p>If we could recover the original <code>sys_config.fex</code>, we would essentially have <strong>the exact blueprint of the hardware</strong>.</p>
+<p>Sounds easy, right?</p>
+<p>It wasn't.</p>
+<h2 id="reading-the-firmware-dump">Reading the firmware dump</h2>
+<p>Earlier in the series we dumped the entire firmware image from the tablet.</p>
+<p>So naturally the first idea was:</p>
+<div class="highlight"><pre><span></span><code>Just search the firmware for script.bin
+</code></pre></div>
+<p>Which unfortunately yielded absolutely nothing.</p>
+<p>No <code>script.bin</code>.</p>
+<p>No <code>.fex</code>.</p>
+<p>No device tree.</p>
+<p>Even <code>binwalk</code> came up empty.</p>
+<p>At this point I assumed one of two things had happened:</p>
+<ol>
+<li>The configuration was <strong>compiled directly into the kernel</strong>.</li>
+<li>The configuration was <strong>embedded in some proprietary binary blob</strong>.</li>
+</ol>
+<p>Both of those options are painful.</p>
+<p>So I started digging through the kernel strings:</p>
+<div class="highlight"><pre><span></span><code>strings zImage | grep script
+</code></pre></div>
+<p>And suddenly things started to look interesting.</p>
+<p>I found references like:</p>
+<div class="highlight"><pre><span></span><code>ctp_para
+lcd0_para
+wifi_para
+</code></pre></div>
+<p>Those names are <strong>classic Allwinner FEX sections</strong>.</p>
+<p>Meaning the kernel was <strong>definitely expecting a FEX configuration</strong>.</p>
+<p>But where was it coming from?</p>
+<hr />
+<h2 id="the-hint-fex-source-code-from-the-bsp">The hint! Fex source code from the BSP</h2>
+<p>After some digging through the Allwinner BSP sources (which are… let's say <em>creatively organized</em>) I stumbled upon something interesting.</p>
+<p>The configuration parser used by the kernel is implemented in:</p>
+<div class="highlight"><pre><span></span><code>sys_config.c
+</code></pre></div>
+<p>Inside the BSP source tree.</p>
+<p>And buried in that code is a rather revealing comment:</p>
+<blockquote>
+<p>The script configuration may be provided by the bootloader or loaded from memory.</p>
+</blockquote>
+<p>Wait.</p>
+<p>Loaded from memory?</p>
+<p>That means the bootloader can <strong>pass the FEX configuration directly to the kernel at boot time</strong>.</p>
+<p>Which means it might not exist anywhere in the filesystem at all.</p>
+<p>Instead it might only exist in <strong>RAM during boot</strong>.</p>
+<p>That was the moment where things started to click.</p>
+<hr />
+<h2 id="it-was-in-ram-all-the-time-ugh">It was in RAM all the time... Ugh</h2>
+<p>After realizing the configuration might only exist in memory, the obvious next step was to inspect what the running kernel exposes.</p>
+<p>Linux often exposes hardware configuration through <strong>virtual filesystems</strong> like:</p>
+<div class="highlight"><pre><span></span><code>/proc
+/sys
+</code></pre></div>
+<p>So I started poking around.</p>
+<p>And then I noticed something very interesting.</p>
+<p>Inside <code>/proc</code>:</p>
+<div class="highlight"><pre><span></span><code>/proc/script/
+</code></pre></div>
+<p>And:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ls /proc/script/</span>
+dump<span class="w">    </span>get-item
+</code></pre></div>
+<p>Wow, it has something called dump! </p>
+<p>Which means the configuration we were looking for had been available the entire time.</p>
+<p>Right there. All we had to do was dump it.</p>
+<hr />
+<h2 id="dumping-the-configuration">Dumping the configuration</h2>
+<p>Once we knew where to look, extracting it became surprisingly simple.</p>
+<p>On the running system:</p>
+<div class="highlight"><pre><span></span><code>echo all &gt; /proc/script/dump
+cat /proc/script/dump
+
+&lt;System_crash&gt;
+</code></pre></div>
+<p>Uh oh... Why did my system crash... </p>
+<p>Guess what? Buffer overflow...</p>
+<p>So let's do it in parts and dump it to sdcard:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">OUT</span><span class="o">=</span>/sdcard/sys_config_dump.txt
+:<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$OUT</span><span class="s2">&quot;</span>
+
+<span class="k">for</span><span class="w"> </span>k<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="se">\</span>
+product<span class="w"> </span>platform<span class="w"> </span>target<span class="w"> </span>secure<span class="w"> </span>charging_type<span class="w"> </span>key_detect_en<span class="w"> </span>power_sply<span class="w"> </span>gpio_bias<span class="w"> </span><span class="se">\</span>
+card_boot<span class="w"> </span>box_start_os<span class="w"> </span>disp_init<span class="w"> </span>lcd0_para<span class="w"> </span>lcd1_para<span class="w"> </span>ctp_para<span class="w"> </span>wifi_para<span class="w"> </span>bt_para<span class="w"> </span><span class="se">\</span>
+camera0_para<span class="w"> </span>camera1_para<span class="w"> </span>gsensor_para<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$k</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/script/dump<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">continue</span>
+<span class="w">    </span><span class="o">{</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;===== </span><span class="nv">$k</span><span class="s2"> =====&quot;</span>
+<span class="w">        </span>cat<span class="w"> </span>/sys/class/script/dump
+<span class="w">        </span><span class="nb">echo</span>
+<span class="w">    </span><span class="o">}</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$OUT</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+sync
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;saved to </span><span class="nv">$OUT</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>Great! Now we finally had the mysterious <strong><code>script.bin</code></strong>.</p>
+<p>But this binary format isn't exactly human friendly.</p>
+<p>Luckily the sunxi community already solved that problem years ago.</p>
+<p>Using the <code>sunxi-tools</code> utilities we can convert it back into readable FEX:</p>
+<div class="highlight"><pre><span></span><code>bin2fex script.bin &gt; sys_config.fex
+</code></pre></div>
+<p>And suddenly the entire board configuration appears in front of you:</p>
+<div class="highlight"><pre><span></span><code>[lcd0_para]
+lcd_used = 1
+lcd_driver_name = &quot;qihan_panel&quot;
+lcd_x = 720
+lcd_y = 1280
+
+[ctp_para]
+ctp_used = 1
+ctp_name = &quot;gslX680&quot;
+
+[wifi_para]
+wifi_used = 1
+wifi_sdc_id = 3
+</code></pre></div>
+<p>And just like that we now have the exact information needed to reconstruct the hardware description.</p>
+<hr />
+<h2 id="what-information-was-found">What information was found</h2>
+<p>The pins:</p>
+<div class="highlight"><pre><span></span><code>PD2  -&gt; lcdd2
+PD3  -&gt; lcdd3
+PD4  -&gt; lcdd4
+PD5  -&gt; lcdd5
+PD6  -&gt; lcdd6
+PD7  -&gt; lcdd7
+PD10 -&gt; lcdd10
+PD11 -&gt; lcdd11
+PD12 -&gt; lcdd12
+PD13 -&gt; lcdd13
+PD14 -&gt; lcdd14
+PD15 -&gt; lcdd15
+PD18 -&gt; lcdd18
+PD19 -&gt; lcdd19
+PD20 -&gt; lcdd20
+PD21 -&gt; lcdd21
+PD22 -&gt; lcdd22
+PD23 -&gt; lcdd23
+
+PD24 -&gt; lcdclk
+PD25 -&gt; lcdde
+PD26 -&gt; lcdhsync
+PD27 -&gt; lcdvsync
+</code></pre></div>
+<p>The resolution and pixel-clk:</p>
+<div class="highlight"><pre><span></span><code>1920x1200
+lcd_dclk_freq = 150 MHz
+</code></pre></div>
+<p>The backlight and PWM channel:
+<div class="highlight"><pre><span></span><code>lcd_bl_en -&gt; PD29
+lcd_pwm_used = 1
+lcd_pwm_ch = 0
+</code></pre></div></p>
+<p>The ssd2828 panel driver communication pins:</p>
+<div class="highlight"><pre><span></span><code>lcd_gpio_0 (SPI_SCK)     -&gt; PE5
+lcd_gpio_1 (SPI_MOSI)    -&gt; PE6
+lcd_gpio_2 (SPI_CS)      -&gt; PE7
+lcd_gpio_4 (RESET)         -&gt; PE9
+lcd_gpio_5 (PANEL_POWER)   -&gt; PL10
+lcd_gpio_6 (PANEL_EN/IRQ?) -&gt; PH4
+</code></pre></div>
+<p>Brightness mapping:</p>
+<div class="highlight"><pre><span></span><code>lcd0_backlight = 255
+</code></pre></div>
+<p>LCD driver parameters:</p>
+<div class="highlight"><pre><span></span><code>lcd_used = 1 
+lcd_driver_namestring = &quot;qihan_lcd&quot; 
+lcd_if = 4 
+lcd_x = 1920 
+lcd_y = 1200 
+lcd_width = 150 
+lcd_height = 94 
+lcd_dclk_freq = 150 
+lcd_pwm_used = 1 
+lcd_pwm_ch = 0 
+lcd_pwm_freq = 10000 
+lcd_pwm_pol = 1
+lcd_hbp = 80 
+lcd_ht = 2044 
+lcd_hspw = 16 
+lcd_vbp = 16 
+lcd_vt = 1224 
+lcd_vspw = 8 
+lcd_hv_clk_phaseint = 1
+</code></pre></div>
+<h2 id="why-this-matters">Why this matters</h2>
+<p>With the recovered <code>sys_config.fex</code> we can now:</p>
+<ul>
+<li>identify the <strong>LCD panel</strong></li>
+<li>identify the <strong>touchscreen controller</strong></li>
+<li>determine <strong>GPIO assignments</strong></li>
+<li>determine <strong>power regulators</strong></li>
+<li>map <strong>I²C devices</strong></li>
+<li>reconstruct a <strong>proper device tree</strong></li>
+</ul>
+<p>Which means the next step becomes possible:</p>
+<blockquote>
+<p><strong>Getting the internal display working under mainline Linux.</strong></p>
+</blockquote>
+<p>And that journey turned out to be even more entertaining than this one.</p>
+<p>Because of course it did.</p>
+<hr />
+<p><em>To be continued…</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="opendutchsolutions/site"
+        data-repo-id="R_kgDORXLuVg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDORXLuVs4C3EpZ"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../15/on-a-quest-to-find-sanbots-deepest-secrets--part-5-getting-buildroot-to-work/" class="md-footer__link md-footer__link--prev" aria-label="Previous: On a Quest to find Sanbot&#39;s deepest secrets – Part 5 (Getting buildroot to work)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                On a Quest to find Sanbot's deepest secrets – Part 5 (Getting buildroot to work)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../29/on-a-quest-to-find-sanbots-deepest-secrets--part-7-bringing-up-the-display-pipeline-under-mainline-linux/" class="md-footer__link md-footer__link--next" aria-label="Next: On a Quest to find Sanbot&#39;s deepest secrets – Part 7 (Bringing up the display pipeline under mainline Linux)">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                On a Quest to find Sanbot's deepest secrets – Part 7 (Bringing up the display pipeline under mainline Linux)
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

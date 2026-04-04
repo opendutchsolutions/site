@@ -1,0 +1,3041 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../robots/">
+      
+      
+        <link rel="next" href="../../archive/2026/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/ODS_thumbnail.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Sanbot - OpenDutchSolutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/ods.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sanbot" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="OpenDutchSolutions" class="md-header__button md-logo" aria-label="OpenDutchSolutions" data-md-component="logo">
+      <img id="logo_dark_mode" src="../../../ODS_thumbnail.svg" alt="logo">
+<img id="logo_light_mode" src="../../../ODS_thumbnail_white.svg" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenDutchSolutions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sanbot
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Welcome
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../projects/open_source/sanbot/sanbot_hardware_overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../about%20us/about_us/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  About us
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="OpenDutchSolutions" class="md-nav__button md-logo" aria-label="OpenDutchSolutions" data-md-component="logo">
+      <img id="logo_dark_mode" src="../../../ODS_thumbnail.svg" alt="logo">
+<img id="logo_light_mode" src="../../../ODS_thumbnail_white.svg" alt="logo">
+    </a>
+    OpenDutchSolutions
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../repair-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repair work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../reverse-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reverse engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../robots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robots
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+      
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sanbot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open source projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Open source projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/open_source/sanbot/sanbot_hardware_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sanbot Elf hardware overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About us
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About us
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about%20us/about_us/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About OpenDutchSolutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content" data-md-component="content">
+    <div class="md-content__inner">
+      <header class="md-typeset">
+        <h1 id="sanbot">Sanbot</h1>
+      </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://avatars.githubusercontent.com/u/95024850" alt="Victor Hogeweij">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-03-29 00:00:00+00:00">March 29, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../reverse-engineering/" class="md-meta__link">Reverse engineering</a>, 
+              <a href="../robots/" class="md-meta__link">Robots</a>, 
+              <a href="./" class="md-meta__link">Sanbot</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              7 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="on-a-quest-to-find-sanbots-deepest-secrets-part-7-bringing-up-the-display-pipeline-under-mainline-linux"><a class="toclink" href="../../2026/03/29/on-a-quest-to-find-sanbots-deepest-secrets--part-7-bringing-up-the-display-pipeline-under-mainline-linux/">On a Quest to find Sanbot's deepest secrets – Part 7 (Bringing up the display pipeline under mainline Linux)</a></h2>
+<p><a href="../../2026/03/16/on-a-quest-to-find-sanbots-deepest-secrets--part-6-dumping-the-build-configuration-of-the-android-rom/">Last time we extracted the vendor FEX configuration</a>  and finally had
+all the hardware parameters we needed. Now it was time to actually use them.</p>
+<p>The goal: get the internal 1920×1200 display working under mainline Linux 6.19.</p>
+<p>Spoiler: it took a lot longer than expected. But we got there. Mostly.</p>
+<div class="admonition warning annotate">
+<p class="admonition-title">Legal note</p>
+<p>This research was conducted on hardware legally owned by the author.
+All analysis is performed for the purposes of interoperability,
+repair, and educational research.</p>
+<p>No proprietary firmware or copyrighted software
+is redistributed on this site.</p>
+</div>
+<hr />
+<h3 id="the-hardware"><a class="toclink" href="../../2026/03/29/on-a-quest-to-find-sanbots-deepest-secrets--part-7-bringing-up-the-display-pipeline-under-mainline-linux/#the-hardware">The hardware</a></h3>
+<p>Just to recap what we are dealing with:</p>
+<ul>
+<li><strong>SoC</strong>: Allwinner A83T (8× Cortex-A7)</li>
+<li><strong>Display</strong>: 1920×1200 parallel RGB → <strong>SSD2828</strong> MIPI bridge → panel</li>
+<li><strong>TCON0</strong>: parallel RGB output at 150 MHz pixel clock</li>
+<li><strong>Backlight</strong>: PWM channel 0 on PD28, enable on PD29</li>
+<li><strong>SSD2828 SPI</strong>: SCLK=PE5, MOSI=PE6, CS=PE7, RESET=PE9</li>
+</ul>
+<p>The SSD2828 is a bridge chip. TCON0 outputs raw parallel RGB, the SSD2828
+converts it to MIPI DSI, and the panel receives MIPI. Without initialising the
+SSD2828 over SPI, the panel sees nothing.</p>
+<p>This detail will become very relevant later.</p>
+<hr />
+<h3 id="writing-the-device-tree"><a class="toclink" href="../../2026/03/29/on-a-quest-to-find-sanbots-deepest-secrets--part-7-bringing-up-the-display-pipeline-under-mainline-linux/#writing-the-device-tree">Writing the device tree</a></h3>
+<p>The first task was translating the FEX parameters into a proper Linux device tree.</p>
+<p>This is not as straightforward as it sounds. The FEX format is flat.
+The Linux DRM pipeline is a graph of connected components:</p>
+<div class="highlight"><pre><span></span><code>DE2 mixer → TCON0 → [endpoint] → panel-dpi → backlight (PWM)
+</code></pre></div>
+<p>Every link in that graph has to be expressed as a <code>port</code> / <code>endpoint</code> pair
+in the DTS. Get one wrong and the whole thing silently fails.</p>
+<p>The first few iterations produced this delightful message:</p>
+<div class="highlight"><pre><span></span><code>sun4i-drm display-engine: No panel or bridge found... RGB output disabled
+</code></pre></div>
+<p>To debug what was actually in the compiled DTB, the kernel's own <code>dtc</code> was
+used (the system one couldn't decompile the blob at all):</p>
+<div class="highlight"><pre><span></span><code>output/build/linux-6.19.8/scripts/dtc/dtc<span class="w"> </span>-I<span class="w"> </span>dtb<span class="w"> </span>-O<span class="w"> </span>dts<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/images/sun8i-a83t-sanbot.dtb<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="s1">&#39;lcd-controller@1c0c000&#39;</span>
+</code></pre></div>
+<p>Which revealed:</p>
+<div class="highlight"><pre><span></span><code>lcd-controller@1c0c000 {
+    ...
+    ports {
+    };   ← empty!
+};
+</code></pre></div>
+<p>The <code>tcon0_out</code> endpoint was missing from the compiled DTB entirely. After
+investigation it turned out that DTC was silently dropping <code>endpoint@0</code> with
+<code>reg = &lt;0&gt;</code> inside <code>tcon0_out</code> due to an address-cells conflict. The node
+was discarded without any warning.</p>
+<p>The fix was to drop the <code>@0</code> and <code>reg</code> entirely, a port with a single
+endpoint does not need addressing:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&amp;</span><span class="nf">tcon0_out</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nl">tcon0_out_panel</span><span class="p">:</span><span class="w"> </span><span class="nf">endpoint</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">remote-endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">panel_input</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>One silent DTC footgun, filed away.</p>
+<hr />
+<h3 id="the-kconfig-maze"><a class="toclink" href="../../2026/03/29/on-a-quest-to-find-sanbots-deepest-secrets--part-7-bringing-up-the-display-pipeline-under-mainline-linux/#the-kconfig-maze">The Kconfig maze</a></h3>
+<p>With the DTS correct, the next problem was getting the drivers compiled in.</p>
+<p>The A83T uses <strong>Display Engine 2</strong> (DE2). The relevant Kconfig symbol is
+<code>SUNXI_DE2</code>, which is a hidden bool, no prompt, cannot be set directly.
+It is only auto-selected by <code>MACH_SUNXI_H3_H5</code> and <code>MACH_SUN50I</code>.</p>
+<p>Not by <code>MACH_SUN8I_A83T</code>.</p>
+<p>Confirming this in menuconfig by searching for <code>DE2</code>:</p>
+<div class="highlight"><pre><span></span><code>Symbol: SUNXI_DE2 [=n]
+  Depends on: ARM &amp;&amp; ARCH_SUNXI
+  Selected by [n]:
+    - MACH_SUNXI_H3_H5
+    - MACH_SUN50I
+</code></pre></div>
+<p>The fix was a one-line patch to <code>arch/arm/mach-sunxi/Kconfig</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">config</span><span class="w"> </span>MACH_SUN8I_A83T
+<span class="w">    </span><span class="nb">bool</span><span class="w"> </span><span class="s2">&quot;sun8i (Allwinner A83T)&quot;</span>
+<span class="w">    </span>...
+<span class="w">    </span><span class="k">select</span><span class="w"> </span>SUNXI_DE2<span class="w">        </span><span class="c1"># ← add this</span>
+</code></pre></div>
+<p>With <code>SUNXI_DE2</code> selected, <code>VIDEO_DE2</code> has <code>default y</code> and activates
+automatically. But that only applies to the U-Boot side. It turned out
+<code>sunxi_de2.c</code> in U-Boot was written exclusively for the H3/H5/H6 CCM layout.
+The A83T has a completely different clock controller, so the driver simply
+fails to compile:</p>
+<div class="highlight"><pre><span></span><code>drivers/video/sunxi/sunxi_de2.c: In function &#39;sunxi_de2_composer_init&#39;:
+sunxi_de2.c:47: error: implicit declaration of function &#39;clock_set_pll10&#39;
+sunxi_de2.c:50: error: &#39;struct sunxi_ccm_reg&#39; has no member named &#39;de_clk_cfg&#39;
+</code></pre></div>
+<p>After staring at the error messages for a while the conclusion was clear:
+<strong>U-Boot display is a dead end for the A83T</strong>. Skip it entirely and do
+everything in Linux where the driver support is complete.</p>
+<hr />
+<h3 id="the-dtb-placement-problem"><a class="toclink" href="../../2026/03/29/on-a-quest-to-find-sanbots-deepest-secrets--part-7-bringing-up-the-display-pipeline-under-mainline-linux/#the-dtb-placement-problem">The DTB placement problem</a></h3>
+<p>Buildroot was configured with both <code>BR2_LINUX_KERNEL_INTREE_DTS_NAME</code> and
+<code>BR2_LINUX_KERNEL_CUSTOM_DTS_PATH</code> set at the same time:</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;INTREE_DTS|CUSTOM_DTS&#39;</span><span class="w"> </span>.config
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>BR2_LINUX_KERNEL_INTREE_DTS_NAME=&quot;sun8i-a83t-sanbot&quot;
+BR2_LINUX_KERNEL_CUSTOM_DTS_PATH=&quot;dts/sun8i-a83t-sanbot.dts&quot;
+</code></pre></div>
+<p>Both set simultaneously means Buildroot compiles the custom DTS from the root
+<code>arch/arm/boot/dts/</code> directory, without access to the DTSI files in
+<code>allwinner/</code>. The compiled DTB was technically valid. As it had the  correct magic bytes, a
+plausible size. But was missing the entire DE2 display pipeline because the
+DTSI nodes never made it in.</p>
+<p>Confirmed by inspecting the compiled result:</p>
+<div class="highlight"><pre><span></span><code>output/build/linux-6.19.8/scripts/dtc/dtc<span class="w"> </span>-I<span class="w"> </span>dtb<span class="w"> </span>-O<span class="w"> </span>dts<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/images/sun8i-a83t-sanbot.dtb<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;display-engine|status.*okay|1100000|mixer&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>display-engine {
+    compatible = &quot;allwinner,sun8i-a83t-display-engine&quot;;
+    status = &quot;okay&quot;;
+    mixer@1100000 { ...
+</code></pre></div>
+<p>The <code>display-engine</code> node was correct once the DTS was placed inside
+<code>arch/arm/boot/dts/allwinner/</code> and the intree name was set to
+<code>allwinner/sun8i-a83t-sanbot</code>. The fix:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>dts/sun8i-a83t-sanbot.dts<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/build/linux-6.19.8/arch/arm/boot/dts/allwinner/
+
+<span class="c1"># Fix includes (no longer need the allwinner/ prefix)</span>
+sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|#include &quot;allwinner/sun8i-a83t.dtsi&quot;|#include &quot;sun8i-a83t.dtsi&quot;|&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/build/linux-6.19.8/arch/arm/boot/dts/allwinner/sun8i-a83t-sanbot.dts
+sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|#include &quot;allwinner/axp81x.dtsi&quot;|#include &quot;axp81x.dtsi&quot;|&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/build/linux-6.19.8/arch/arm/boot/dts/allwinner/sun8i-a83t-sanbot.dts
+
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;dtb-$(CONFIG_MACH_SUN8I) += sun8i-a83t-sanbot.dtb&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/build/linux-6.19.8/arch/arm/boot/dts/allwinner/Makefile
+
+make<span class="w"> </span>-C<span class="w"> </span>output/build/linux-6.19.8<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>arm<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">CROSS_COMPILE</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/output/host/bin/arm-buildroot-linux-gnueabihf-<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>allwinner/sun8i-a83t-sanbot.dtb
+</code></pre></div>
+<p>Lesson: never set both <code>INTREE_DTS_NAME</code> and <code>CUSTOM_DTS_PATH</code> at the same
+time in Buildroot. Pick one.</p>
+<hr />
+<h3 id="the-panel-compatible-string"><a class="toclink" href="../../2026/03/29/on-a-quest-to-find-sanbots-deepest-secrets--part-7-bringing-up-the-display-pipeline-under-mainline-linux/#the-panel-compatible-string">The panel compatible string</a></h3>
+<p>With the DTS and DTB placement sorted, the next boot showed:</p>
+<div class="highlight"><pre><span></span><code>sun4i-drm display-engine: bound 1100000.mixer
+sun4i-drm display-engine: bound 1200000.mixer
+sun4i-drm display-engine: bound 1c0c000.lcd-controller
+[drm] Initialized sun4i-drm 1.0.0 for display-engine on minor 0
+</code></pre></div>
+<p>Progress. But tcon0 (<code>lcd-controller@1c0c000</code>) was still stuck in deferred
+probe. The panel had no driver bound despite <code>CONFIG_DRM_PANEL_SIMPLE=y</code>.</p>
+<p>Forcing a bind attempt to see the actual error:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>panel<span class="w"> </span>&gt;<span class="w"> </span>/sys/bus/platform/drivers/panel-simple/bind
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sh: write error: No such device
+</code></pre></div>
+<p><code>-ENODEV</code>. The driver rejected the device entirely. Checking whether
+<code>simple-panel</code> was in the driver's compatibility table:</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s1">&#39;simple-panel&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/build/linux-6.19.8/drivers/gpu/drm/panel/panel-simple.c
+</code></pre></div>
+<p>No output. It is not there.</p>
+<p>Searching for the correct compatible:</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s1">&#39;&quot;panel&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/build/linux-6.19.8/drivers/gpu/drm/panel/panel-simple.c<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>.compatible = &quot;panel-dpi&quot;,
+</code></pre></div>
+<p>In mainline Linux 6.19, the correct compatible for a custom-timing parallel
+RGB panel is <code>panel-dpi</code>. It reads its timing from the <code>panel-timing</code> subnode
+and requires a <code>power-supply</code> property.</p>
+<p>Change two lines in the DTS:</p>
+<div class="highlight"><pre><span></span><code><span class="nl">panel</span><span class="p">:</span><span class="w"> </span><span class="nf">panel</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;panel-dpi&quot;</span><span class="p">;</span><span class="w">       </span><span class="cm">/* was &quot;simple-panel&quot; */</span>
+<span class="w">    </span><span class="n">power-supply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">reg_dcdc1</span><span class="o">&gt;</span><span class="p">;</span><span class="w">    </span><span class="cm">/* required by panel-dpi */</span>
+<span class="w">    </span><span class="p">...</span>
+</code></pre></div>
+<p>Next boot:</p>
+<div class="highlight"><pre><span></span><code>panel-simple panel: Specify missing bus_format
+panel-simple panel: Expected bpc in {6,8} but got: 0
+sun4i-drm display-engine: bound 1c0c000.lcd-controller
+[drm] Initialized sun4i-drm 1.0.0 for display-engine on minor 0
+</code></pre></div>
+<p>The warnings about <code>bus_format</code> and <code>bpc</code> are fixable by adding
+<code>bus-format = &lt;0x100a&gt;</code> and <code>bpc = &lt;8&gt;</code> to the panel node. But the important
+part: <strong>all five components are now bound</strong> and <code>/dev/dri/card0</code> exists.</p>
+<hr />
+<h3 id="checking-the-hardware"><a class="toclink" href="../../2026/03/29/on-a-quest-to-find-sanbots-deepest-secrets--part-7-bringing-up-the-display-pipeline-under-mainline-linux/#checking-the-hardware">Checking the hardware</a></h3>
+<p>With <code>modetest</code> from <code>libdrm-tests</code>, listing connectors:</p>
+<div class="highlight"><pre><span></span><code>modetest<span class="w"> </span>-M<span class="w"> </span>sun4i-drm<span class="w"> </span>-c
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>53      0       connected       Unknown-1       0x0             1       52
+  modes:
+    #0 1920x1200 59.96 1920 1948 1964 2044 1200 1200 1208 1224 150000
+        flags: nhsync, nvsync; type: preferred, driver
+</code></pre></div>
+<p>The connector reports as <strong>connected</strong> with exactly the timing from the FEX
+file. The DRM driver correctly parsed the <code>panel-timing</code> node.</p>
+<p>Before setting a mode, checking the panel enable GPIO state:</p>
+<div class="highlight"><pre><span></span><code>mount<span class="w"> </span>-t<span class="w"> </span>debugfs<span class="w"> </span>debugfs<span class="w"> </span>/sys/kernel/debug
+cat<span class="w"> </span>/sys/kernel/debug/gpio<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">228</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>gpio-228 (enable) out lo    ← PH4 panel enable is LOW
+</code></pre></div>
+<p>Setting the mode:</p>
+<div class="highlight"><pre><span></span><code>modetest<span class="w"> </span>-M<span class="w"> </span>sun4i-drm<span class="w"> </span>-s<span class="w"> </span><span class="m">53</span>:1920x1200
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>setting mode 1920x1200-59.96Hz on connectors 53, crtc 51
+</code></pre></div>
+<p>Checking again immediately after:</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/sys/kernel/debug/gpio<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">228</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>gpio-228 (enable) out hi    ← PH4 panel enable is now HIGH
+</code></pre></div>
+<p>TCON0 is now clocking out pixels at 150 MHz. The backlight:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/backlight/backlight/bl_power
+<span class="nb">echo</span><span class="w"> </span><span class="m">10</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/backlight/backlight/brightness
+</code></pre></div>
+<p>The backlight illuminates. The PWM is running. The panel enable is high.</p>
+<hr />
+<h3 id="the-one-missing-piece"><a class="toclink" href="../../2026/03/29/on-a-quest-to-find-sanbots-deepest-secrets--part-7-bringing-up-the-display-pipeline-under-mainline-linux/#the-one-missing-piece">The one missing piece</a></h3>
+<p>Everything works. Except the screen stays blank.</p>
+<p>The reason is the <strong>SSD2828 bridge chip</strong>.</p>
+<p>TCON0 outputs parallel RGB. The SSD2828 sits between TCON0 and the MIPI
+panel and converts the signal. But the SSD2828 needs to be initialised over
+SPI before it will pass anything through.</p>
+<p>The SPI lines (PE5/PE6/PE7) and reset (PE9) are all confirmed in the FEX
+dump. The vendor driver is called <code>qihan_lcd</code> and the init sequence is
+compiled into the vendor <code>disp.ko</code> kernel module found on the Android system
+partition:</p>
+<div class="highlight"><pre><span></span><code>strings<span class="w"> </span>/mnt/android/vendor/modules/disp.ko<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>qihan
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>qihan_lcd
+qihan_panel.c
+drivers/video/sunxi/disp2/disp/lcd/qihan_panel.c
+</code></pre></div>
+<p>Extracting and reimplementing that init sequence is the next step.</p>
+<p>The full display pipeline is working. The bridge just needs its coffee.</p>
+<hr />
+<h3 id="current-state-summary"><a class="toclink" href="../../2026/03/29/on-a-quest-to-find-sanbots-deepest-secrets--part-7-bringing-up-the-display-pipeline-under-mainline-linux/#current-state-summary">Current state summary</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DE2 mixer</td>
+<td>✅ bound</td>
+</tr>
+<tr>
+<td>TCON0 (lcd-controller)</td>
+<td>✅ bound</td>
+</tr>
+<tr>
+<td>HDMI (tcon1)</td>
+<td>✅ bound</td>
+</tr>
+<tr>
+<td>panel-dpi driver</td>
+<td>✅ bound</td>
+</tr>
+<tr>
+<td>PWM backlight</td>
+<td>✅ working</td>
+</tr>
+<tr>
+<td>PH4 panel enable</td>
+<td>✅ high after modetest</td>
+</tr>
+<tr>
+<td>PL10 panel power</td>
+<td>✅ high (r_pio)</td>
+</tr>
+<tr>
+<td>SSD2828 SPI init</td>
+<td>❌ not yet implemented</td>
+</tr>
+<tr>
+<td>Pixels on screen</td>
+<td>❌ blocked by SSD2828</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="whats-next"><a class="toclink" href="../../2026/03/29/on-a-quest-to-find-sanbots-deepest-secrets--part-7-bringing-up-the-display-pipeline-under-mainline-linux/#whats-next">What's next</a></h3>
+<p>The <code>qihan_panel.c</code> source path appears in the strings of <code>disp.ko</code>. The init
+sequence is compiled in. The next task is extracting it, understanding the
+SSD2828 register layout, and reimplementing it as either a small Linux utility
+or a proper DRM bridge driver.</p>
+<p>After that, the screen should finally show something.</p>
+<p><em>To be continued…</em></p>
+    
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://avatars.githubusercontent.com/u/95024850" alt="Victor Hogeweij">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-03-16 00:00:00+00:00">March 16, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../reverse-engineering/" class="md-meta__link">Reverse engineering</a>, 
+              <a href="../robots/" class="md-meta__link">Robots</a>, 
+              <a href="./" class="md-meta__link">Sanbot</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              5 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="on-a-quest-to-find-sanbots-deepest-secrets-part-6-dumping-the-build-configuration-of-the-android-rom"><a class="toclink" href="../../2026/03/16/on-a-quest-to-find-sanbots-deepest-secrets--part-6-dumping-the-build-configuration-of-the-android-rom/">On a Quest to find Sanbot's deepest secrets – Part 6 (Dumping the build configuration of the android rom)</a></h2>
+<p><a href="../../2026/03/15/on-a-quest-to-find-sanbots-deepest-secrets--part-5-getting-buildroot-to-work/">As we now have our own custom buildroot port running on the Sanbot tablet</a>, we ofcourse need the internal screen to be working. </p>
+<p>Which was a long tedious journay with a unexpected twist. Like always things are sometimes easier then I would have thought.</p>
+<div class="admonition warning annotate">
+<p class="admonition-title">Legal note</p>
+<p>This research was conducted on hardware legally owned by the author.
+All analysis is performed for the purposes of interoperability,
+repair, and educational research.</p>
+<p>No proprietary firmware or copyrighted software
+is redistributed on this site.</p>
+</div>
+<h3 id="what-do-i-need"><a class="toclink" href="../../2026/03/16/on-a-quest-to-find-sanbots-deepest-secrets--part-6-dumping-the-build-configuration-of-the-android-rom/#what-do-i-need">What do I need?</a></h3>
+<p>To get the LCD working under mainline Linux we need one very specific piece of information:</p>
+<p><strong>The original hardware configuration used by the vendor kernel.</strong></p>
+<p>On modern ARM systems this information lives in a <strong>device tree</strong> (<code>.dtb</code>).<br />
+But as we discovered earlier, the Sanbot tablet is powered by an <strong>Allwinner A83T</strong>, and the vendor kernel is an ancient <strong>3.4 BSP kernel</strong>.</p>
+<p>Those kernels don’t use device trees.</p>
+<p>Instead they rely on a configuration format called <strong>FEX</strong>.</p>
+<p>The workflow looked roughly like this:</p>
+<div class="highlight"><pre><span></span><code>sys_config.fex → script.bin → parsed by kernel
+</code></pre></div>
+<p>The <code>script.bin</code> contains things like:</p>
+<ul>
+<li>LCD panel configuration</li>
+<li>touchscreen controller</li>
+<li>GPIO mappings</li>
+<li>power regulators</li>
+<li>DRAM configuration</li>
+<li>WiFi chip</li>
+<li>I²C buses</li>
+</ul>
+<p>Basically <strong>the entire board layout</strong>.</p>
+<p>Since the immediate goal was getting the internal display working, I was mainly interested in the <strong>LCD parameters</strong>.</p>
+<p>Those usually live in the <code>lcd0_para</code> section of the FEX file and contain values such as:</p>
+<div class="highlight"><pre><span></span><code>[lcd0_para]
+lcd_used = 1
+lcd_driver_name = &quot;some_panel&quot;
+lcd_if = 0
+lcd_x = 720
+lcd_y = 1280
+lcd_dclk_freq = ?
+lcd_pwm_used = ?
+lcd_pwm_freq = ?
+lcd_hbp = ?
+lcd_ht = ?
+lcd_vbp = ?
+lcd_vt = ?
+</code></pre></div>
+<p>Which translates roughly into the parameters a modern <strong>device tree panel driver</strong> expects:</p>
+<ul>
+<li>resolution (x / y)</li>
+<li>pixel clock</li>
+<li>horizontal timing</li>
+<li>vertical timing</li>
+<li>interface type (RGB / LVDS / MIPI DSI)</li>
+<li>backlight control</li>
+<li>reset GPIO</li>
+<li>power regulators</li>
+</ul>
+<p>Without these values the kernel simply has <strong>no idea how to drive the display controller</strong>.</p>
+<p>And on tablets, the LCD panel is almost always a <strong>custom OEM part</strong>, which means guessing those numbers is... not fun.</p>
+<p>So instead of guessing, the plan was simple:</p>
+<blockquote>
+<p>Extract the original vendor configuration.</p>
+</blockquote>
+<p>If we could recover the original <code>sys_config.fex</code>, we would essentially have <strong>the exact blueprint of the hardware</strong>.</p>
+<p>Sounds easy, right?</p>
+<p>It wasn't.</p>
+<h3 id="reading-the-firmware-dump"><a class="toclink" href="../../2026/03/16/on-a-quest-to-find-sanbots-deepest-secrets--part-6-dumping-the-build-configuration-of-the-android-rom/#reading-the-firmware-dump">Reading the firmware dump</a></h3>
+<p>Earlier in the series we dumped the entire firmware image from the tablet.</p>
+<p>So naturally the first idea was:</p>
+<div class="highlight"><pre><span></span><code>Just search the firmware for script.bin
+</code></pre></div>
+<p>Which unfortunately yielded absolutely nothing.</p>
+<p>No <code>script.bin</code>.</p>
+<p>No <code>.fex</code>.</p>
+<p>No device tree.</p>
+<p>Even <code>binwalk</code> came up empty.</p>
+<p>At this point I assumed one of two things had happened:</p>
+<ol>
+<li>The configuration was <strong>compiled directly into the kernel</strong>.</li>
+<li>The configuration was <strong>embedded in some proprietary binary blob</strong>.</li>
+</ol>
+<p>Both of those options are painful.</p>
+<p>So I started digging through the kernel strings:</p>
+<div class="highlight"><pre><span></span><code>strings zImage | grep script
+</code></pre></div>
+<p>And suddenly things started to look interesting.</p>
+<p>I found references like:</p>
+<div class="highlight"><pre><span></span><code>ctp_para
+lcd0_para
+wifi_para
+</code></pre></div>
+<p>Those names are <strong>classic Allwinner FEX sections</strong>.</p>
+<p>Meaning the kernel was <strong>definitely expecting a FEX configuration</strong>.</p>
+<p>But where was it coming from?</p>
+<hr />
+<h3 id="the-hint-fex-source-code-from-the-bsp"><a class="toclink" href="../../2026/03/16/on-a-quest-to-find-sanbots-deepest-secrets--part-6-dumping-the-build-configuration-of-the-android-rom/#the-hint-fex-source-code-from-the-bsp">The hint! Fex source code from the BSP</a></h3>
+<p>After some digging through the Allwinner BSP sources (which are… let's say <em>creatively organized</em>) I stumbled upon something interesting.</p>
+<p>The configuration parser used by the kernel is implemented in:</p>
+<div class="highlight"><pre><span></span><code>sys_config.c
+</code></pre></div>
+<p>Inside the BSP source tree.</p>
+<p>And buried in that code is a rather revealing comment:</p>
+<blockquote>
+<p>The script configuration may be provided by the bootloader or loaded from memory.</p>
+</blockquote>
+<p>Wait.</p>
+<p>Loaded from memory?</p>
+<p>That means the bootloader can <strong>pass the FEX configuration directly to the kernel at boot time</strong>.</p>
+<p>Which means it might not exist anywhere in the filesystem at all.</p>
+<p>Instead it might only exist in <strong>RAM during boot</strong>.</p>
+<p>That was the moment where things started to click.</p>
+<hr />
+<h3 id="it-was-in-ram-all-the-time-ugh"><a class="toclink" href="../../2026/03/16/on-a-quest-to-find-sanbots-deepest-secrets--part-6-dumping-the-build-configuration-of-the-android-rom/#it-was-in-ram-all-the-time-ugh">It was in RAM all the time... Ugh</a></h3>
+<p>After realizing the configuration might only exist in memory, the obvious next step was to inspect what the running kernel exposes.</p>
+<p>Linux often exposes hardware configuration through <strong>virtual filesystems</strong> like:</p>
+<div class="highlight"><pre><span></span><code>/proc
+/sys
+</code></pre></div>
+<p>So I started poking around.</p>
+<p>And then I noticed something very interesting.</p>
+<p>Inside <code>/proc</code>:</p>
+<div class="highlight"><pre><span></span><code>/proc/script/
+</code></pre></div>
+<p>And:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ls /proc/script/</span>
+dump<span class="w">    </span>get-item
+</code></pre></div>
+<p>Wow, it has something called dump! </p>
+<p>Which means the configuration we were looking for had been available the entire time.</p>
+<p>Right there. All we had to do was dump it.</p>
+<hr />
+<h3 id="dumping-the-configuration"><a class="toclink" href="../../2026/03/16/on-a-quest-to-find-sanbots-deepest-secrets--part-6-dumping-the-build-configuration-of-the-android-rom/#dumping-the-configuration">Dumping the configuration</a></h3>
+<p>Once we knew where to look, extracting it became surprisingly simple.</p>
+<p>On the running system:</p>
+<div class="highlight"><pre><span></span><code>echo all &gt; /proc/script/dump
+cat /proc/script/dump
+
+&lt;System_crash&gt;
+</code></pre></div>
+<p>Uh oh... Why did my system crash... </p>
+<p>Guess what? Buffer overflow...</p>
+<p>So let's do it in parts and dump it to sdcard:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">OUT</span><span class="o">=</span>/sdcard/sys_config_dump.txt
+:<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$OUT</span><span class="s2">&quot;</span>
+
+<span class="k">for</span><span class="w"> </span>k<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="se">\</span>
+product<span class="w"> </span>platform<span class="w"> </span>target<span class="w"> </span>secure<span class="w"> </span>charging_type<span class="w"> </span>key_detect_en<span class="w"> </span>power_sply<span class="w"> </span>gpio_bias<span class="w"> </span><span class="se">\</span>
+card_boot<span class="w"> </span>box_start_os<span class="w"> </span>disp_init<span class="w"> </span>lcd0_para<span class="w"> </span>lcd1_para<span class="w"> </span>ctp_para<span class="w"> </span>wifi_para<span class="w"> </span>bt_para<span class="w"> </span><span class="se">\</span>
+camera0_para<span class="w"> </span>camera1_para<span class="w"> </span>gsensor_para<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$k</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/script/dump<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">continue</span>
+<span class="w">    </span><span class="o">{</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;===== </span><span class="nv">$k</span><span class="s2"> =====&quot;</span>
+<span class="w">        </span>cat<span class="w"> </span>/sys/class/script/dump
+<span class="w">        </span><span class="nb">echo</span>
+<span class="w">    </span><span class="o">}</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$OUT</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+
+sync
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;saved to </span><span class="nv">$OUT</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>Great! Now we finally had the mysterious <strong><code>script.bin</code></strong>.</p>
+<p>But this binary format isn't exactly human friendly.</p>
+<p>Luckily the sunxi community already solved that problem years ago.</p>
+<p>Using the <code>sunxi-tools</code> utilities we can convert it back into readable FEX:</p>
+<div class="highlight"><pre><span></span><code>bin2fex script.bin &gt; sys_config.fex
+</code></pre></div>
+<p>And suddenly the entire board configuration appears in front of you:</p>
+<div class="highlight"><pre><span></span><code>[lcd0_para]
+lcd_used = 1
+lcd_driver_name = &quot;qihan_panel&quot;
+lcd_x = 720
+lcd_y = 1280
+
+[ctp_para]
+ctp_used = 1
+ctp_name = &quot;gslX680&quot;
+
+[wifi_para]
+wifi_used = 1
+wifi_sdc_id = 3
+</code></pre></div>
+<p>And just like that we now have the exact information needed to reconstruct the hardware description.</p>
+<hr />
+<h3 id="what-information-was-found"><a class="toclink" href="../../2026/03/16/on-a-quest-to-find-sanbots-deepest-secrets--part-6-dumping-the-build-configuration-of-the-android-rom/#what-information-was-found">What information was found</a></h3>
+<p>The pins:</p>
+<div class="highlight"><pre><span></span><code>PD2  -&gt; lcdd2
+PD3  -&gt; lcdd3
+PD4  -&gt; lcdd4
+PD5  -&gt; lcdd5
+PD6  -&gt; lcdd6
+PD7  -&gt; lcdd7
+PD10 -&gt; lcdd10
+PD11 -&gt; lcdd11
+PD12 -&gt; lcdd12
+PD13 -&gt; lcdd13
+PD14 -&gt; lcdd14
+PD15 -&gt; lcdd15
+PD18 -&gt; lcdd18
+PD19 -&gt; lcdd19
+PD20 -&gt; lcdd20
+PD21 -&gt; lcdd21
+PD22 -&gt; lcdd22
+PD23 -&gt; lcdd23
+
+PD24 -&gt; lcdclk
+PD25 -&gt; lcdde
+PD26 -&gt; lcdhsync
+PD27 -&gt; lcdvsync
+</code></pre></div>
+<p>The resolution and pixel-clk:</p>
+<div class="highlight"><pre><span></span><code>1920x1200
+lcd_dclk_freq = 150 MHz
+</code></pre></div>
+<p>The backlight and PWM channel:
+<div class="highlight"><pre><span></span><code>lcd_bl_en -&gt; PD29
+lcd_pwm_used = 1
+lcd_pwm_ch = 0
+</code></pre></div></p>
+<p>The ssd2828 panel driver communication pins:</p>
+<div class="highlight"><pre><span></span><code>lcd_gpio_0 (SPI_SCK)     -&gt; PE5
+lcd_gpio_1 (SPI_MOSI)    -&gt; PE6
+lcd_gpio_2 (SPI_CS)      -&gt; PE7
+lcd_gpio_4 (RESET)         -&gt; PE9
+lcd_gpio_5 (PANEL_POWER)   -&gt; PL10
+lcd_gpio_6 (PANEL_EN/IRQ?) -&gt; PH4
+</code></pre></div>
+<p>Brightness mapping:</p>
+<div class="highlight"><pre><span></span><code>lcd0_backlight = 255
+</code></pre></div>
+<p>LCD driver parameters:</p>
+<div class="highlight"><pre><span></span><code>lcd_used = 1 
+lcd_driver_namestring = &quot;qihan_lcd&quot; 
+lcd_if = 4 
+lcd_x = 1920 
+lcd_y = 1200 
+lcd_width = 150 
+lcd_height = 94 
+lcd_dclk_freq = 150 
+lcd_pwm_used = 1 
+lcd_pwm_ch = 0 
+lcd_pwm_freq = 10000 
+lcd_pwm_pol = 1
+lcd_hbp = 80 
+lcd_ht = 2044 
+lcd_hspw = 16 
+lcd_vbp = 16 
+lcd_vt = 1224 
+lcd_vspw = 8 
+lcd_hv_clk_phaseint = 1
+</code></pre></div>
+<h3 id="why-this-matters"><a class="toclink" href="../../2026/03/16/on-a-quest-to-find-sanbots-deepest-secrets--part-6-dumping-the-build-configuration-of-the-android-rom/#why-this-matters">Why this matters</a></h3>
+<p>With the recovered <code>sys_config.fex</code> we can now:</p>
+<ul>
+<li>identify the <strong>LCD panel</strong></li>
+<li>identify the <strong>touchscreen controller</strong></li>
+<li>determine <strong>GPIO assignments</strong></li>
+<li>determine <strong>power regulators</strong></li>
+<li>map <strong>I²C devices</strong></li>
+<li>reconstruct a <strong>proper device tree</strong></li>
+</ul>
+<p>Which means the next step becomes possible:</p>
+<blockquote>
+<p><strong>Getting the internal display working under mainline Linux.</strong></p>
+</blockquote>
+<p>And that journey turned out to be even more entertaining than this one.</p>
+<p>Because of course it did.</p>
+<hr />
+<p><em>To be continued…</em></p>
+    
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://avatars.githubusercontent.com/u/95024850" alt="Victor Hogeweij">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-03-15 00:00:00+00:00">March 15, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../reverse-engineering/" class="md-meta__link">Reverse engineering</a>, 
+              <a href="../robots/" class="md-meta__link">Robots</a>, 
+              <a href="./" class="md-meta__link">Sanbot</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              4 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="on-a-quest-to-find-sanbots-deepest-secrets-part-5-getting-buildroot-to-work"><a class="toclink" href="../../2026/03/15/on-a-quest-to-find-sanbots-deepest-secrets--part-5-getting-buildroot-to-work/">On a Quest to find Sanbot's deepest secrets – Part 5 (Getting buildroot to work)</a></h2>
+<p>With a working u-boot in <a href="../../2026/03/14/on-a-quest-to-find-sanbots-deepest-secrets--part-4-getting-u-boot-to-work/">part 4 of this series</a>, what could we possibly add? More of our own code, of course. In this blog post I will describe how I got Buildroot working on this ancient 10-year-old tablet.</p>
+<div class="admonition warning annotate">
+<p class="admonition-title">Legal note</p>
+<p>This research was conducted on hardware legally owned by the author.
+All analysis is performed for the purposes of interoperability,
+repair, and educational research.</p>
+<p>No proprietary firmware or copyrighted software
+is redistributed on this site.</p>
+</div>
+<h3 id="why-buildroot"><a class="toclink" href="../../2026/03/15/on-a-quest-to-find-sanbots-deepest-secrets--part-5-getting-buildroot-to-work/#why-buildroot">Why Buildroot?</a></h3>
+<p>For those who don't know, Buildroot is a very easy way to hack together a small Linux distro. It consists mostly of a build system, a mainline (or custom) Linux kernel, and a few useful CLI tools. The build process is straightforward: generate the <code>.config</code> with <code>make menuconfig</code> and then run <code>make</code>. That's it.</p>
+<p>So why not Yocto, Armbian, or <code>&lt;insert any other project here&gt;</code>?</p>
+<p>Because Buildroot is simply easier to modify and rebuild for quick experiments. I only have to tweak the devicetree or adjust options in <code>menuconfig</code> to add or remove functionality.</p>
+<p>The build also produces nice standalone artifacts like <code>.dtb</code>, <code>zImage</code>, and <code>rootfs.tar</code>, which I can easily copy to a USB drive and boot with my custom U-Boot build.</p>
+<p>Yocto would require meta-layers and much more configuration. Armbian also involves a lot more setup. Android builds are huge, and I simply don't need the entire Android userspace for quick testing.</p>
+<h3 id="how-i-did-it"><a class="toclink" href="../../2026/03/15/on-a-quest-to-find-sanbots-deepest-secrets--part-5-getting-buildroot-to-work/#how-i-did-it">How I did it</a></h3>
+<p>It turns out that mainline Linux already has support for the Banana Pi M3:</p>
+<p><a href="https://github.com/torvalds/linux/blob/master/arch/arm/boot/dts/allwinner/sun8i-a83t-bananapi-m3.dts"><code>arch/arm/boot/dts/allwinner/sun8i-a83t-bananapi-m3.dts</code></a></p>
+<div class="highlight"><pre><span></span><code><span class="nf">/</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Banana Pi BPI-M3&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;sinovoip,bpi-m3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;allwinner,sun8i-a83t&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Since the Sanbot tablet also uses the <strong>Allwinner A83T</strong>, this is a good starting point.</p>
+<p>So let's clone Buildroot and open the configuration menu:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/buildroot/buildroot.git
+<span class="nb">cd</span><span class="w"> </span>buildroot<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>menuconfig
+</code></pre></div>
+<p>First configure the <strong>Target options</strong>.</p>
+<p>Change the following:</p>
+<ul>
+<li>Target Architecture → ARM (little endian)</li>
+<li>Target Architecture Variant → cortex-A7</li>
+</ul>
+<p><img alt="Buildroot menuconfig -&gt; target_options" src="../../assets/sanbot_buildroot_menuconfig_target_options.png" /></p>
+<p>Next go to <strong>Kernel</strong> and enable the Linux kernel with the following settings:</p>
+<ul>
+<li>Defconfig name → <code>sunxi</code></li>
+<li>
+<p>Build a Device Tree Blob</p>
+</li>
+<li>
+<p>In-tree Device Tree Source file names: <code>allwinner/sun8i-a83t-bananapi-m3</code></p>
+</li>
+</ul>
+<p><img alt="Buildroot menuconfig -&gt; linux kernel" src="../../assets/sanbot_menuconfig_linux_kernel_conf.png" /></p>
+<p>After this, grab some coffee — the compilation takes around <strong>10–15 minutes</strong>.</p>
+<h3 id="preparing-the-usb-disk"><a class="toclink" href="../../2026/03/15/on-a-quest-to-find-sanbots-deepest-secrets--part-5-getting-buildroot-to-work/#preparing-the-usb-disk">Preparing the USB disk</a></h3>
+<p>Once the build finishes, prepare a USB drive:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkfs.ext4<span class="w"> </span>/dev/&lt;replace_with_usb_part&gt;
+&lt;mount<span class="w"> </span>the<span class="w"> </span>USB<span class="w"> </span>using<span class="w"> </span>file<span class="w"> </span>manager<span class="w"> </span>and<span class="w"> </span>copy<span class="w"> </span>the<span class="w"> </span>usb-drive<span class="w"> </span>path&gt;
+cp<span class="w"> </span>-r<span class="w"> </span>output/images/zImage<span class="w"> </span>&lt;usb_drive_path&gt;
+cp<span class="w"> </span>-r<span class="w"> </span>output/images/sun8i-a83t-bananapi-m3.dtb<span class="w"> </span>&lt;usb_drive_path&gt;
+sudo<span class="w"> </span>tar<span class="w"> </span>xf<span class="w"> </span>output/images/rootfs.tar<span class="w"> </span>-C<span class="w"> </span>&lt;usb_drive_path&gt;
+</code></pre></div>
+<h3 id="booting-it"><a class="toclink" href="../../2026/03/15/on-a-quest-to-find-sanbots-deepest-secrets--part-5-getting-buildroot-to-work/#booting-it">Booting it</a></h3>
+<p>Next I tried to boot it using my custom U-Boot:</p>
+<div class="highlight"><pre><span></span><code>sunxi-fel uboot u-boot-sunxi-with-spl.bin
+&lt;press any key in uart-console&gt;
+
+usb start
+ext4load usb 0:1 0x42000000 /zImage
+ext4load usb 0:1 0x43000000 /sun8i-a83t-bananapi-m3.dtb
+setenv bootargs console=ttyS0,115200 earlycon root=/dev/sda1 rw rootwait
+bootz 0x42000000 - 0x43000000
+</code></pre></div>
+<p>And it almost booted immediately:</p>
+<div class="highlight"><pre><span></span><code>=&gt; ext4load usb 0:1 0x42000000 /zImage
+5775616 bytes read in 144 ms (38.2 MiB/s)
+=&gt; ext4load usb 0:1 0x43000000 /sun8i-a83t-bananapi-m3.dtb
+25459 bytes read in 5 ms (4.9 MiB/s)
+=&gt; setenv bootargs console=ttyS0,115200 earlycon root=/dev/sda1 rw rootwait loglevel=8
+=&gt; bootz 0x42000000 - 0x43000000
+Kernel image @ 0x42000000 [ 0x000000 - 0x582100 ]
+...
+Starting kernel ...
+</code></pre></div>
+<p>Boot logs started scrolling by, but something strange happened:</p>
+<div class="highlight"><pre><span></span><code>usb 1-1.4.2: USB disconnect
+usb 1-1.4.2: new high-speed USB device
+usb 1-1.4.2: USB disconnect
+usb 1-1.4.2: new high-speed USB device
+...
+</code></pre></div>
+<p>Why does my USB device keep connecting and disconnecting?</p>
+<p>After digging through <code>menuconfig</code>, the answer appeared quickly: <strong>USB mass storage support wasn't enabled.</strong></p>
+<p>Fixing that was easy.</p>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>linux-menuconfig
+</code></pre></div>
+<p>Navigate to:</p>
+<div class="highlight"><pre><span></span><code>Device Drivers
+ → USB Support
+   → USB Mass Storage support
+</code></pre></div>
+<p>Press <strong>space twice</strong> so the option becomes <code>*</code> instead of <code>M</code>.</p>
+<p><img alt="Menuconfig menu -&gt; enable_mass_storage option" src="../../assets/sanbot_enable_mass_storage.png" /></p>
+<p>Rebuild the kernel and try again.</p>
+<p>And this time:</p>
+<div class="highlight"><pre><span></span><code>Starting syslogd: OK
+Starting klogd: OK
+Running sysctl: OK
+Starting network: OK
+Starting crond: OK
+
+Welcome to Buildroot
+buildroot login:
+</code></pre></div>
+<p>It works!</p>
+<h3 id="whats-working"><a class="toclink" href="../../2026/03/15/on-a-quest-to-find-sanbots-deepest-secrets--part-5-getting-buildroot-to-work/#whats-working">What's working?</a></h3>
+<p>From the limited testing I've done so far:</p>
+<ul>
+<li>CPU and scheduler work fine</li>
+<li>HDMI hotplug detection works</li>
+<li>DRM video output works</li>
+</ul>
+<p>This matches the status shown in the <a href="https://linux-sunxi.org/Linux_mainlining_effort">mainline effort table</a> pretty well.</p>
+<p>The <strong>GPU will probably never work on mainline</strong>, unfortunately. The SoC uses an <strong>Imagination PowerVR SGX544MP1</strong>, which only has an old proprietary DDK targeting <strong>kernel 3.4</strong>:</p>
+<p><a href="https://github.com/BPI-SINOVOIP/BPI-M3-bsp/tree/master/linux-sunxi/modules/gpu/sgx544/android/kernel_mode/eurasia_km">https://github.com/BPI-SINOVOIP/BPI-M3-bsp/tree/master/linux-sunxi/modules/gpu/sgx544/android/kernel_mode/eurasia_km</a></p>
+<p>Newer kernels aren't supported at all, and it doesn't look like there is any intention to mainline it.</p>
+<p>In the end, for our custom <strong>Ubuntu Touch</strong> build we will probably have to run an older kernel. Ideally I would like to port the driver to at least <strong>kernel 4.x</strong>, so we can benefit from some of the newer security and stability improvements.</p>
+<p>For now though, the next goal is simpler: <strong>getting the display working</strong>.</p>
+<p>According to the mainline effort table, the <strong>RGB display interface is supported</strong>, so it should be possible to extract the parameters from the Android ROM and use them to construct a working device tree for the panel.</p>
+    
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://avatars.githubusercontent.com/u/95024850" alt="Victor Hogeweij">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-03-14 00:00:00+00:00">March 14, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../reverse-engineering/" class="md-meta__link">Reverse engineering</a>, 
+              <a href="../robots/" class="md-meta__link">Robots</a>, 
+              <a href="./" class="md-meta__link">Sanbot</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="on-a-quest-to-find-sanbots-deepest-secrets-part-4-getting-u-boot-to-work"><a class="toclink" href="../../2026/03/14/on-a-quest-to-find-sanbots-deepest-secrets--part-4-getting-u-boot-to-work/">On a Quest to find Sanbot's deepest secrets – Part 4 (Getting U-boot to work)</a></h2>
+<p>In <a href="../../2026/03/09/on-a-quest-to-find-sanbots-deepest-secrets--part-3-rooting-the-tablet-and-dumping-the-rom/">part 3</a> of this quest we discovered the environment variables needed to build U-Boot. Interestingly, they turned out to be <strong>remarkably similar</strong> to the variables used for the Banana Pi M3.</p>
+<p>However, our custom-compiled U-Boot still didn't detect the <strong>eMMC memory</strong>, which meant we couldn't yet load any custom OS. But guess what? After digging around for a while I finally found some clues and got it working!</p>
+<p>The goal of running <strong>Ubuntu Touch</strong> is getting closer and closer. I can't wait…</p>
+<div class="admonition warning annotate">
+<p class="admonition-title">Legal note</p>
+<p>This research was conducted on hardware legally owned by the author.
+All analysis is performed for the purposes of interoperability,
+repair, and educational research.</p>
+<p>No proprietary firmware or copyrighted software
+is redistributed on this site.</p>
+</div>
+<h3 id="some-backstory"><a class="toclink" href="../../2026/03/14/on-a-quest-to-find-sanbots-deepest-secrets--part-4-getting-u-boot-to-work/#some-backstory">Some backstory</a></h3>
+<p>In <a href="../../2026/02/22/on-a-quest-to-find-sanbots-deepest-secrets--part-1/">part 1</a> we attempted to run a custom-compiled U-Boot using configuration values we guessed from the <strong>Banana Pi M3</strong>, which is quite similar to this board. Both use the same <strong>SoC, regulators, and memory configuration</strong>, so it seemed like a reasonable starting point.</p>
+<p>Unfortunately we got stuck when trying to detect the MMC device:</p>
+<div class="highlight"><pre><span></span><code>=&gt; mmc list
+=&gt; mmc dev 1
+Card did not respond to voltage select! : -110
+</code></pre></div>
+<p>After searching around for this error, I eventually stumbled upon <a href="https://forum.armbian.com/topic/33673-banana-pi-m3-boot-from-emmc/#comment-180624">a blog post on the Armbian forum</a>. That thread referenced <a href="https://github.com/armbian/build/pull/7252">a pull request in the Armbian build system</a>.</p>
+<p>Following that rabbit hole led me to a patch related to the <code>sunxi_mmc_can_calibrate</code> function.</p>
+<h3 id="sunxi_mmc_can_calibrate"><a class="toclink" href="../../2026/03/14/on-a-quest-to-find-sanbots-deepest-secrets--part-4-getting-u-boot-to-work/#sunxi_mmc_can_calibrate"><code>sunxi_mmc_can_calibrate</code></a></h3>
+<p>In newer releases of U-Boot, the function <code>sunxi_mmc_can_calibrate</code> was introduced. Its job is to <strong>automatically calibrate MMC controller timings</strong>.</p>
+<p>However, the U-Boot team never added an entry for the <strong>Allwinner A83T</strong>, meaning the calibration logic simply <strong>fails by default</strong> on this SoC. As a result, the <code>mmc dev</code> command fails because the handshake never completes, the calibration function returns false, preventing the controller from initializing correctly.</p>
+<p>The fix turned out to be surprisingly simple: add support for the <strong>A83T</strong> in the <code>sunxi_mmc_can_calibrate</code> logic.</p>
+<p>With this small patch:</p>
+<div class="highlight"><pre><span></span><code>From 335c35e6f56b87397d5b6ba74d7676e37269636b Mon Sep 17 00:00:00 2001
+From: leo &lt;leo@localhost.localdomain&gt;
+Date: Sun, 15 Sep 2024 10:50:38 +0300
+Subject: [PATCH 1/2] Add MACH_SUN8I_A83T to can calibrate
+
+Add the A83T processor to the sunxi_mmc_can_calibrate
+logic function for proper configuration.
+
+<span class="gs">---</span>
+<span class="w"> </span>drivers/mmc/sunxi_mmc.c | 1 +
+<span class="w"> </span>1 file changed, 1 insertion(+)
+
+<span class="gh">diff --git a/drivers/mmc/sunxi_mmc.c b/drivers/mmc/sunxi_mmc.c</span>
+<span class="gh">index 9534f9ac35..9493bd8639 100644</span>
+<span class="gd">--- a/drivers/mmc/sunxi_mmc.c</span>
+<span class="gi">+++ b/drivers/mmc/sunxi_mmc.c</span>
+<span class="gu">@@ -62,6 +62,7 @@ static bool sunxi_mmc_can_calibrate(void)</span>
+<span class="w"> </span>          IS_ENABLED(CONFIG_MACH_SUN50I_H5) ||
+<span class="w"> </span>          IS_ENABLED(CONFIG_SUN50I_GEN_H6) ||
+<span class="w"> </span>          IS_ENABLED(CONFIG_SUNXI_GEN_NCAT2) ||
+<span class="gi">+          IS_ENABLED(CONFIG_MACH_SUN8I_A83T) ||</span>
+<span class="w"> </span>          IS_ENABLED(CONFIG_MACH_SUN8I_R40);
+<span class="w"> </span>}
+
+<span class="gd">-- </span>
+2.35.3
+</code></pre></div>
+<p>…the MMC controller finally came to life:</p>
+<div class="highlight"><pre><span></span><code>=&gt; mmc list
+mmc@1c0f000: 0
+mmc@1c10000: 2
+mmc@1c11000: 1
+=&gt; mmc dev 1
+switch to partitions #0, OK
+mmc1(part 0) is current device
+=&gt; mmc info  
+Device: mmc@1c11000
+Manufacturer ID: 11
+OEM: 0
+Name: 016G70 
+Bus Speed: 52000000
+Mode: MMC High Speed (52MHz)
+Rd Block Len: 512
+MMC version 5.0
+High Capacity: Yes
+Capacity: 14.7 GiB
+Bus Width: 8-bit
+Erase Group Size: 512 KiB
+HC WP Group Size: 4 MiB
+User Capacity: 14.7 GiB WRREL
+Boot Capacity: 4 MiB ENH
+RPMB Capacity: 4 MiB ENH
+Boot area 0 is not write protected
+Boot area 1 is not write protected
+=&gt; mmc part
+
+Partition Map for mmc device 1  --   Partition Type: DOS
+
+Part    Start Sector    Num Sectors     UUID            Type
+  1     5382144         25493504        00000000-01     0b Boot
+  2     73728           65536           00000000-02     06
+  3     1               5242880         00000000-03     05 Extd
+  5     139264          32768           00000000-05     83
+  6     172032          32768           00000000-06     83
+  7     204800          4194304         00000000-07     83
+  8     4399104         65536           00000000-08     83
+  9     4464640         32768           00000000-09     83
+ 10     4497408         65536           00000000-0a     83
+ 11     4562944         524288          00000000-0b     83
+ 12     5087232         32768           00000000-0c     83
+ 13     5120000         32768           00000000-0d     83
+ 14     5152768         1024            00000000-0e     83
+ 15     5153792         31744           00000000-0f     83
+ 16     5185536         163840          00000000-10     83
+ 17     5349376         32768           00000000-11     83
+=&gt; 
+</code></pre></div>
+<p>Finally! With working MMC access we can now explore the <strong>Sanbot's internal storage directly from U-Boot</strong>, opening the door for booting our own operating system.</p>
+<p>The source code for this modified U-Boot can be found on GitHub:
+<a href="https://github.com/opendutchsolutions/u-boot-sanbot">opendutchsolutions/u-boot-sanbot</a></p>
+    
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://avatars.githubusercontent.com/u/95024850" alt="Victor Hogeweij">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-03-09 00:00:00+00:00">March 9, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../reverse-engineering/" class="md-meta__link">Reverse engineering</a>, 
+              <a href="../robots/" class="md-meta__link">Robots</a>, 
+              <a href="./" class="md-meta__link">Sanbot</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              4 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="on-a-quest-to-find-sanbots-deepest-secrets-part-3-rooting-the-tablet-and-dumping-the-rom"><a class="toclink" href="../../2026/03/09/on-a-quest-to-find-sanbots-deepest-secrets--part-3-rooting-the-tablet-and-dumping-the-rom/">On a Quest to find Sanbot's deepest secrets – Part 3 (Rooting the tablet and dumping the ROM)</a></h2>
+<p>Part 2 of the quest focused on figuring out how the tablet communicates with its internal control boards.<br />
+<a href="../../2026/02/22/on-a-quest-to-find-sanbots-deepest-secrets--part-1/">In this post we return to part 1</a>, where we explored several ways to dump the tablet's ROM.</p>
+<p>Unfortunately we were not able to successfully dump it in part 1.<br />
+In this post we finally manage to extract the ROM using the DirtyCow root exploit and <code>adb</code>.</p>
+<div class="admonition warning annotate">
+<p class="admonition-title">Legal note</p>
+<p>This research was conducted on hardware legally owned by the author.
+All analysis is performed for the purposes of interoperability,
+repair, and educational research.</p>
+<p>No proprietary firmware or copyrighted software
+is redistributed on this site.</p>
+</div>
+<h3 id="very-old-kernel-old-android-exploits"><a class="toclink" href="../../2026/03/09/on-a-quest-to-find-sanbots-deepest-secrets--part-3-rooting-the-tablet-and-dumping-the-rom/#very-old-kernel-old-android-exploits">Very old kernel + old android == exploits</a></h3>
+<p>The tablet inside the robot is based on an Allwinner A83T SoC.It contains an octa-core ARM Cortex-A7 CPU together with a PowerVR SGX544MP1 GPU <a href="https://linux-sunxi.org/A83T">you can read more about this mediocre ic here</a>. <a href="https://forum.armbian.com/topic/474-banana-pi-m3/">Or you can read the rant blog posts on armbian about trying to support this device</a>, with maintainers having headaches due to the bad performance and proprietary blobs for the Power VR GPU.</p>
+<p>Because of the vendor BSP provided by Allwinner, the system is effectively locked to the very old 3.14.39 kernel. On top of this kernel runs a slimmed-down Android 6.0 system.</p>
+<p>Because the software stack is extremely outdated, several well-known privilege-escalation exploits remain available. One of them was dirtyCow. I followed the instructions from <a href="https://github.com/j0nk0/GetRoot-Android-DirtyCow">GetRoot-Android-DirtyCow by jOnkO</a>. Which fortunately worked right out of the box.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>adb<span class="w"> </span>shell<span class="w"> </span>run-as
+...
+...
+root@octopus_qh106<span class="w"> </span><span class="c1"># id -u</span>
+<span class="m">0</span>
+</code></pre></div>
+<p>With the root shell now working, there was one thing left to do...</p>
+<h3 id="dump-the-rom"><a class="toclink" href="../../2026/03/09/on-a-quest-to-find-sanbots-deepest-secrets--part-3-rooting-the-tablet-and-dumping-the-rom/#dump-the-rom">Dump the rom</a></h3>
+<p>Dumping the ROM once root access is available is fairly straightforward. The first step is determining which block device contains the eMMC:</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/block*
+</code></pre></div>
+<p>From there it is easy to figure out we need to dump mmcblk0. Though dumping the whole mmcblk0 means we get a ~16GB image, which we need to store somewhere. First I thought of using an external USB stick as that might give higher transport speeds then transferring it using WiFi (SDIO-wifi ~ 2Mb/s from what i've tried) or ADB (USB HS 480Mbps). Though quickly I found out, I could only write using the FUSE layer mounted /storage/<USB_NAME> location. </p>
+<p>But by trying to dump it to USB stick, the FUSE layer gave up and crashed. That's why I eventually settled on transferring over ADB. To dump over adb, I did the following:</p>
+<p>1) Set-up reverse forwarding of port 10000
+<div class="highlight"><pre><span></span><code>adb<span class="w"> </span>reverse<span class="w"> </span>tcp:10000<span class="w"> </span>tcp:10000
+</code></pre></div></p>
+<p>2) Set-up listening socket on my laptop, which dumps data to an android_dump.img file.
+<div class="highlight"><pre><span></span><code>nc<span class="w"> </span>-l<span class="w"> </span><span class="m">10000</span><span class="w"> </span>&gt;<span class="w"> </span>android_dump.img
+</code></pre></div></p>
+<p>3) Start the root shell using ADB and using dd with pipe to netcat which sends it over the reverse forwarding connection.
+<div class="highlight"><pre><span></span><code>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/block/mmcblk0<span class="w"> </span><span class="p">|</span><span class="w"> </span>toybox<span class="w"> </span>nc<span class="w"> </span>-q<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="m">10000</span>
+</code></pre></div></p>
+<p>After 30 minutes of waiting, I had my firmware dump.</p>
+<h3 id="whats-in-the-dump"><a class="toclink" href="../../2026/03/09/on-a-quest-to-find-sanbots-deepest-secrets--part-3-rooting-the-tablet-and-dumping-the-rom/#whats-in-the-dump">What's in the dump</a></h3>
+<p>Well, all the apps of course, but those were already extracted earlier.. What I was really after were the DRAM, eMMC and power-management configuration settings required to build my own U-Boot.</p>
+<p>It was tough finding this information in the image as they compiled the configuration options into u-boot as a static binary. which is notoriously difficult to reverse-engineer.. Though I found these settings;</p>
+<div class="highlight"><pre><span></span><code><span class="nt">platform</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">soc_family</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi</span>
+<span class="w">  </span><span class="nt">soc_arch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sun8i</span>
+<span class="w">  </span><span class="nt">probable_soc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sun8i-a83t</span>
+<span class="w">  </span><span class="nt">bootloader</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">u-boot</span>
+<span class="w">  </span><span class="nt">vendor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">allwinner</span>
+<span class="w">  </span><span class="nt">secure_mode_strings</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SUNXI_SECURE_MODE</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SUNXI_NORMAL_MODE</span>
+
+<span class="nt">boot_environment</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">console</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ttyS0,115200&quot;</span>
+<span class="w">  </span><span class="nt">nand_root</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/dev/system&quot;</span>
+<span class="w">  </span><span class="nt">mmc_root</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/dev/mmcblk0p7&quot;</span>
+<span class="w">  </span><span class="nt">init</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/init&quot;</span>
+<span class="w">  </span><span class="nt">loglevel</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4&quot;</span>
+<span class="w">  </span><span class="nt">selinux</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;disabled&quot;</span>
+
+<span class="nt">boot_variables</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">bootdelay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">  </span><span class="nt">bootcmd</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;run</span><span class="nv"> </span><span class="s">setargs_nand</span><span class="nv"> </span><span class="s">boot_normal&quot;</span>
+<span class="w">  </span><span class="nt">boot_normal</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sunxi_flash</span><span class="nv"> </span><span class="s">read</span><span class="nv"> </span><span class="s">40007800</span><span class="nv"> </span><span class="s">boot;boota</span><span class="nv"> </span><span class="s">40007800</span><span class="nv"> </span><span class="s">boot&quot;</span>
+<span class="w">  </span><span class="nt">boot_recovery</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sunxi_flash</span><span class="nv"> </span><span class="s">read</span><span class="nv"> </span><span class="s">40007800</span><span class="nv"> </span><span class="s">recovery;boota</span><span class="nv"> </span><span class="s">40007800</span><span class="nv"> </span><span class="s">recovery&quot;</span>
+<span class="w">  </span><span class="nt">boot_fastboot</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;fastboot&quot;</span>
+
+<span class="nt">boot_arguments</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">setargs_nand</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">setenv bootargs</span>
+<span class="w">    </span><span class="no">console=${console}</span>
+<span class="w">    </span><span class="no">root=${nand_root}</span>
+<span class="w">    </span><span class="no">init=${init}</span>
+<span class="w">    </span><span class="no">vmalloc=384M</span>
+<span class="w">    </span><span class="no">ion_cma_list=&quot;120m,176m,512m&quot;</span>
+<span class="w">    </span><span class="no">loglevel=${loglevel}</span>
+<span class="w">    </span><span class="no">partitions=${partitions}</span>
+<span class="w">    </span><span class="no">androidboot.selinux=${selinux}</span>
+
+<span class="w">  </span><span class="nt">setargs_mmc</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">setenv bootargs</span>
+<span class="w">    </span><span class="no">console=${console}</span>
+<span class="w">    </span><span class="no">root=${mmc_root}</span>
+<span class="w">    </span><span class="no">init=${init}</span>
+<span class="w">    </span><span class="no">vmalloc=384M</span>
+<span class="w">    </span><span class="no">ion_cma_list=&quot;120m,176m,512m&quot;</span>
+<span class="w">    </span><span class="no">loglevel=${loglevel}</span>
+<span class="w">    </span><span class="no">partitions=${partitions}</span>
+<span class="w">    </span><span class="no">androidboot.selinux=${selinux}</span>
+
+<span class="nt">key_triggers</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">recovery_key_value_min</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x10&quot;</span>
+<span class="w">  </span><span class="nt">recovery_key_value_max</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x13&quot;</span>
+<span class="w">  </span><span class="nt">fastboot_key_value_min</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x2&quot;</span>
+<span class="w">  </span><span class="nt">fastboot_key_value_max</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x8&quot;</span>
+
+<span class="nt">mmc_configuration_strings</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">mmc_devices</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MMC0</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MMC2</span>
+<span class="w">  </span><span class="nt">mmc_root</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/dev/mmcblk0p7&quot;</span>
+<span class="w">  </span><span class="nt">mmc_slots_detected</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mmc0</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mmc1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mmc2</span>
+
+<span class="w">  </span><span class="nt">mmc_commands_available</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mmc dev</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mmc list</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mmc part</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mmc rescan</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mmcinfo</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mmc read</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mmc write</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mmc erase</span>
+
+<span class="nt">sunxi_flash_commands</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi_flash read</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi flash log_read</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi flash phy_read</span>
+
+<span class="nt">fastboot_support</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enabled_strings</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi fastboot</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastboot download</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastboot erase</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastboot flash</span>
+
+<span class="nt">usb_boot_modes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">efex_mode_strings</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SUNXI_USB_EFEX_BOOT0_TAG</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SUNXI_USB_EFEX_BOOT1_TAG</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SUNXI_USB_EFEX_MBR_TAG</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SUNXI_USB_EFEX_ERASE_TAG</span>
+
+<span class="w">  </span><span class="nt">usb_modes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastboot</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">efex</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pburn</span>
+
+<span class="nt">security_features</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">signature_verification</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi_verify_signature</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi_verify_rotpk_hash</span>
+<span class="w">  </span><span class="nt">rsa_engine</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi_rsa_calc</span>
+<span class="w">  </span><span class="nt">sha_engine</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi_sha_calc</span>
+
+<span class="nt">secure_storage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">functions</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi_secure_storage_read</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi_secure_storage_write</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi_secure_storage_erase</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi_secure_storage_erase_all</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi_secure_storage_list</span>
+
+<span class="nt">dram_configuration_strings</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">dram_parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_clk</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_type</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_zq</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_odt_en</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_para1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_para2</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_mr0</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_mr1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_mr2</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_mr3</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_tpr0</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_tpr1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_tpr2</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_tpr3</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_tpr4</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_tpr5</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_tpr6</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_tpr7</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_tpr8</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_tpr9</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_tpr10</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_tpr11</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_tpr12</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dram_tpr13</span>
+
+<span class="nt">pmic_strings</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">pmic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">axp81x</span>
+<span class="w">  </span><span class="nt">regulators</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcdc1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcdc2</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcdc3</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcdc4</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dcdc5</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fldo1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fldo2</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aldo1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aldo2</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aldo3</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eldo1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eldo2</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eldo3</span>
+
+<span class="nt">boot_modes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">supported_modes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">normal</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">recovery</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastboot</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sprite_test</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usb_efex</span>
+
+<span class="nt">graphics_boot</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">bmp_functions</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi_bmp_logo_display</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi_bmp_charger_display</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi_bmp_show</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunxi_bmp_display</span>
+
+<span class="nt">filesystem_boot</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">boot_partition_load_address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x40007800&quot;</span>
+<span class="w">  </span><span class="nt">boot_image_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;boot&quot;</span>
+<span class="w">  </span><span class="nt">recovery_image_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;recovery&quot;</span>
+
+<span class="nt">misc_strings</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">uboot_prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sunxi#&quot;</span>
+<span class="w">  </span><span class="nt">console_uart</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sunxi_serial&quot;</span>
+<span class="w">  </span><span class="nt">hardware_string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sunxi_hardware&quot;</span>
+</code></pre></div>
+<p>And yes they did set the <code>bootdelay=0</code> param, so you can't activate any u-boot shell.</p>
+<p>The legacy Allwinner BSP used by this Android system relies on <strong>FEX files</strong> to describe the board configuration for both U-Boot and the Android boot image. This predates the now standard device-tree based configuration used in modern kernels.</p>
+    
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://avatars.githubusercontent.com/u/95024850" alt="Victor Hogeweij">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-03-07 00:00:00+00:00">March 7, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../reverse-engineering/" class="md-meta__link">Reverse engineering</a>, 
+              <a href="../robots/" class="md-meta__link">Robots</a>, 
+              <a href="./" class="md-meta__link">Sanbot</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              4 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="on-a-quest-to-find-sanbots-deepest-secrets-part-2-usb-protocol"><a class="toclink" href="../../2026/03/07/on-a-quest-to-find-sanbots-deepest-secrets--part-2-usb-protocol/">On a Quest to find Sanbot's deepest secrets – Part 2 (USB protocol)</a></h2>
+<p>With <a href="../../2026/02/22/on-a-quest-to-find-sanbots-deepest-secrets--part-1/">part 1 ending in a dump of the Android applications running on the robot</a>, it was time to investigate whether the robot could be controlled directly from a computer over the USB connection using the information obtained from that dump.</p>
+<div class="admonition warning annotate">
+<p class="admonition-title">Legal note</p>
+<p>This research was conducted on hardware legally owned by the author.
+All analysis is performed for the purposes of interoperability,
+repair, and educational research.</p>
+<p>No proprietary firmware or copyrighted software
+is redistributed on this site.</p>
+</div>
+<h3 id="plugging-the-robot-into-my-usb-port"><a class="toclink" href="../../2026/03/07/on-a-quest-to-find-sanbots-deepest-secrets--part-2-usb-protocol/#plugging-the-robot-into-my-usb-port">Plugging the robot into my USB port</a></h3>
+<p>The first thing I had to do was partially disassemble the robot, because we need to access the internal USB port of the tablet. Where we can unplug the USB cable going to the MCU Head and body controller as well as the camera's and microphones.</p>
+<p>After plugging in the USB cable and running lsusb the following devices appeared:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>lsusb
+Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">017</span>:<span class="w"> </span>ID<span class="w"> </span>2bc5:0401<span class="w"> </span>Orbbec<span class="w"> </span>3D<span class="w"> </span>Technology<span class="w"> </span>International,<span class="w"> </span>Inc<span class="w"> </span>Astra
+Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">018</span>:<span class="w"> </span>ID<span class="w"> </span>05e3:0608<span class="w"> </span>Genesys<span class="w"> </span>Logic,<span class="w"> </span>Inc.<span class="w"> </span>Hub
+Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">019</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">0483</span>:5741<span class="w"> </span>STMicroelectronics<span class="w"> </span>XXXXXXXXX-STM32<span class="w"> </span>Virtual<span class="w"> </span>COM<span class="w"> </span>Port
+Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">020</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:0102<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span>EEM<span class="w"> </span>Gadget
+Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">021</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">0483</span>:5740<span class="w"> </span>STMicroelectronics<span class="w"> </span>Virtual<span class="w"> </span>COM<span class="w"> </span>Port
+</code></pre></div>
+<p>From this it becomes clear that the robot exposes two USB CDC-ACM ports (VCOM) for the STM32 microcontrollers, presumably one for the head controller and one for the body controller. One 3d-camera from orbbec and Linux foundation EEM-gadget, which is the microphone and HD-camera situated in the head.</p>
+<h3 id="orbbec-3d-camera"><a class="toclink" href="../../2026/03/07/on-a-quest-to-find-sanbots-deepest-secrets--part-2-usb-protocol/#orbbec-3d-camera">Orbbec 3D-Camera</a></h3>
+<p>The orbbec 3D camera matches with the astra orbbec camera driver, <a href="https://github.com/Vidicon/sanbot_elf_hacking/blob/main/orbbec_camera/astra-win32-driver-4.3.0.22.zip">I found for windows on the GitHub of Vidicon Sanbot elf hacking project</a>. And with firing up Windows, because the Linux SDK depends on very old libraries and I first wanted to get something working quickly. I was greeted with this screen <a href="https://dl.orbbec3d.com/dist/openni2/v2.3.0.86-beta6/Orbbec_OpenNI_v2.3.0.86-beta6_windows_release.zip">using this openni-sdk</a>. Later on when refitting this robot with new hardware/software, I will probably port the old openni-sdk to new dependencies as far as it is possible.</p>
+<p><img alt="Orbbec astra 3d-shot of fire-extinguisher" src="../../assets/orbbec_astra_cam.jpeg" /></p>
+<h3 id="hd-camera-microphones-and-zigbee"><a class="toclink" href="../../2026/03/07/on-a-quest-to-find-sanbots-deepest-secrets--part-2-usb-protocol/#hd-camera-microphones-and-zigbee">HD-Camera, Microphones and Zigbee</a></h3>
+<p>The HD-Camera, Microphones and Zigbee are handled by the EEM gadget:</p>
+<div class="highlight"><pre><span></span><code>Bus 001 Device 020: ID 1d6b:0102 Linux Foundation EEM Gadget
+</code></pre></div>
+<p>This device runs its own small Linux-based firmware which manages the HD camera and the beamforming microphone array. To get that working I did some first attempts to reverse engineer the communications and found some useful clues. Such as there is a service running on the android tablet which sends the HD camera footage over local http port 5500. Which with adb forwarding can be easily captured to your pc.</p>
+<p>Although it is interesting, I rather leave this work for a future blog post.</p>
+<h3 id="microcontrollers-usb-protocol"><a class="toclink" href="../../2026/03/07/on-a-quest-to-find-sanbots-deepest-secrets--part-2-usb-protocol/#microcontrollers-usb-protocol">Microcontrollers usb protocol</a></h3>
+<p>The microcontrollers are connected to the tablet via USB CDC-ACM and expose virtual serial ports over which a custom framed binary protocol is sent.</p>
+<p>The protocol has the format:</p>
+<div class="highlight"><pre><span></span><code>+--------------------+------------------------------+
+| 16-byte header     | Content section              |
++--------------------+------------------------------+
+</code></pre></div>
+<p>The header consists of:</p>
+<table>
+<thead>
+<tr>
+<th>Offset</th>
+<th>Size</th>
+<th>Field</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>2</td>
+<td><code>type</code></td>
+<td><code>A4 03</code></td>
+<td>Message type (Java short <code>-23549</code> → <code>0xA403</code>)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td><code>subtype</code></td>
+<td><code>00 00</code></td>
+<td>Usually <code>0</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td><code>msg_size</code></td>
+<td><code>00 00 00 0C</code></td>
+<td>32-bit content length</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1</td>
+<td><code>ack_flg</code></td>
+<td><code>01</code></td>
+<td>Ack flag</td>
+</tr>
+<tr>
+<td>9</td>
+<td>7</td>
+<td><code>unuse</code></td>
+<td><code>00..00</code></td>
+<td>Always zero padding</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Content section begins at offset 16</strong></p>
+<h4 id="content-structure"><a class="toclink" href="../../2026/03/07/on-a-quest-to-find-sanbots-deepest-secrets--part-2-usb-protocol/#content-structure">Content structure</a></h4>
+<p>The content section got the following structure:
+<div class="highlight"><pre><span></span><code>|-- FRAME_HEAD (2B) --| ACK (1B) |-- MMNN (2B) --|----------- PAYLOAD (N B) -----------| CHECKSUM (1B) |
+|                     |          |               |                                    |               |
+| example: FF A5      | example:01 | example:00 07 | example: 04 02 00 04 00 00        | example: B6   |
+</code></pre></div></p>
+<h4 id="led-command-payload"><a class="toclink" href="../../2026/03/07/on-a-quest-to-find-sanbots-deepest-secrets--part-2-usb-protocol/#led-command-payload">LED Command Payload</a></h4>
+<div class="highlight"><pre><span></span><code>|CMD|SUB|WHICH|MODE|RATE|RAND|
+|04 |02 | ..  | .. | .. | .. |
+</code></pre></div>
+<h4 id="fields"><a class="toclink" href="../../2026/03/07/on-a-quest-to-find-sanbots-deepest-secrets--part-2-usb-protocol/#fields">Fields</a></h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Size</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CMD</code></td>
+<td>1 byte</td>
+<td>Command group. Always <code>0x04</code> for LED control.</td>
+</tr>
+<tr>
+<td><code>SUB</code></td>
+<td>1 byte</td>
+<td>LED subcommand. Always <code>0x02</code>.</td>
+</tr>
+<tr>
+<td><code>WHICH</code></td>
+<td>1 byte</td>
+<td>Selects which LED group to control.</td>
+</tr>
+<tr>
+<td><code>MODE</code></td>
+<td>1 byte</td>
+<td>LED color or animation mode.</td>
+</tr>
+<tr>
+<td><code>RATE</code></td>
+<td>1 byte</td>
+<td>Speed or delay parameter for animations.</td>
+</tr>
+<tr>
+<td><code>RAND</code></td>
+<td>1 byte</td>
+<td>Randomization count used by some animation modes.</td>
+</tr>
+</tbody>
+</table>
+<p>The payload is constructed as:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mh">0x04</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">,</span> <span class="n">which_light</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">random_count</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="which-led-target"><a class="toclink" href="../../2026/03/07/on-a-quest-to-find-sanbots-deepest-secrets--part-2-usb-protocol/#which-led-target">WHICH (LED Target)</a></h3>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>LED Group</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>All LEDs</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Wheel LEDs</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Left hand LEDs</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>Right hand LEDs</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>Left head LEDs</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>Right head LEDs</td>
+</tr>
+<tr>
+<td><code>10</code></td>
+<td>Head ring</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="mode-led-behavior"><a class="toclink" href="../../2026/03/07/on-a-quest-to-find-sanbots-deepest-secrets--part-2-usb-protocol/#mode-led-behavior">MODE (LED Behavior)</a></h3>
+<p>Common values observed:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>Turn LEDs off</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>Red</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>Green</td>
+</tr>
+<tr>
+<td><code>7</code></td>
+<td>Blue</td>
+</tr>
+<tr>
+<td><code>19–25</code></td>
+<td>Various blinking / flicker animation modes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="rate"><a class="toclink" href="../../2026/03/07/on-a-quest-to-find-sanbots-deepest-secrets--part-2-usb-protocol/#rate">RATE</a></h3>
+<p>Controls animation timing.</p>
+<p>Typical usage:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>Default speed</td>
+</tr>
+<tr>
+<td><code>&gt;0</code></td>
+<td>Increasing delay / slower animation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="rand"><a class="toclink" href="../../2026/03/07/on-a-quest-to-find-sanbots-deepest-secrets--part-2-usb-protocol/#rand">RAND</a></h3>
+<p>Randomization parameter used by certain animation modes.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>Disabled</td>
+</tr>
+<tr>
+<td><code>&gt;0</code></td>
+<td>Number of random iterations</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="example"><a class="toclink" href="../../2026/03/07/on-a-quest-to-find-sanbots-deepest-secrets--part-2-usb-protocol/#example">Example</a></h3>
+<p>Turn <strong>head ring LEDs green</strong>:</p>
+<div class="highlight"><pre><span></span><code>04 02 00 04 00 00
+</code></pre></div>
+<p>Meaning:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CMD</td>
+<td><code>04</code></td>
+<td>LED command</td>
+</tr>
+<tr>
+<td>SUB</td>
+<td><code>02</code></td>
+<td>LED control</td>
+</tr>
+<tr>
+<td>WHICH</td>
+<td><code>00</code></td>
+<td>Head ring</td>
+</tr>
+<tr>
+<td>MODE</td>
+<td><code>04</code></td>
+<td>Green</td>
+</tr>
+<tr>
+<td>RATE</td>
+<td><code>00</code></td>
+<td>Default speed</td>
+</tr>
+<tr>
+<td>RAND</td>
+<td><code>00</code></td>
+<td>No randomness</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="summary"><a class="toclink" href="../../2026/03/07/on-a-quest-to-find-sanbots-deepest-secrets--part-2-usb-protocol/#summary">Summary</a></h4>
+<div class="highlight"><pre><span></span><code>┌───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                                           │
+│ TYPE        SUBTYPE      MSG_SIZE         ACK     UNUSED PADDING                                          │
+│ 2 bytes     2 bytes      4 bytes          1       7 bytes                                                  │
+│ A4 03       00 00        00 00 00 0C       01      00 00 00 00 00 00 00                                      │
+│                                                                                                           │
+├──────────────────────────────────────────── Header (16 bytes) ───────────────────────────────────────────┤
+│                                                                                                           │
+│ FRAME_HEAD      ACK      MMNN (payload+1)      PAYLOAD (N bytes)                  CHECKSUM                │
+│ 2 bytes         1        2 bytes               variable                           1 byte                  │
+│ FF A5           01       00 07                 04 02 00 04 00 00                   B6                      │
+│                                                                                                           │
+├──────────────────────────────────────────── Content Section ─────────────────────────────────────────────┤
+│                                                                                                           │
+│                                  Total Frame = 22 + payload_len                                           │
+│                                                                                                           │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+</code></pre></div>
+    
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://avatars.githubusercontent.com/u/95024850" alt="Victor Hogeweij">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-02-22 00:00:00+00:00">February 22, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../reverse-engineering/" class="md-meta__link">Reverse engineering</a>, 
+              <a href="../robots/" class="md-meta__link">Robots</a>, 
+              <a href="./" class="md-meta__link">Sanbot</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              4 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="on-a-quest-to-find-sanbots-deepest-secrets-part-1"><a class="toclink" href="../../2026/02/22/on-a-quest-to-find-sanbots-deepest-secrets--part-1/">On a Quest to find Sanbot's deepest secrets – Part 1</a></h2>
+<p>With the Sanbot repaired in blog posts <a href="../../2026/02/18/repairing-a-sanbot-elf-robot-that-doesnt-charge-anymore/">#1</a> and <a href="../../2026/02/21/repairing-a-sanbot-elf-robot-dock/">#2</a>, it’s time to address the next bottleneck: the aging tablet inside the robot.</p>
+<p>The tablet runs Android 6 and, due to its limited CPU performance and RAM capacity, cannot run newer Android versions. Now that this tablet is roughly eight years old (ancient in Android years), it’s time to uncover its deeper workings and possibly replace it with something that doesn’t struggle to open the settings menu.</p>
+<div class="admonition warning annotate">
+<p class="admonition-title">Legal note</p>
+<p>This research was conducted on hardware legally owned by the author.
+All analysis is performed for the purposes of interoperability,
+repair, and educational research.</p>
+<p>No proprietary firmware or copyrighted software
+is redistributed on this site.</p>
+</div>
+<hr />
+<h3 id="about-the-tablet"><a class="toclink" href="../../2026/02/22/on-a-quest-to-find-sanbots-deepest-secrets--part-1/#about-the-tablet">About the Tablet</a></h3>
+<p>The tablet inside the Sanbot effectively runs the entire robot. It is built around an Allwinner A83T SoC on a custom PCB. Through a USB connection, it communicates with and controls the robot’s subsystems head board, main board, MCU, the whole circus.</p>
+<p>As shown in this block diagram from <a href="https://amslaurea.unibo.it/id/eprint/19120/1/lirussi_igor_tesi.pdf">Igor Lirussi’s thesis</a>:</p>
+<p><img alt="Block diagram of the Sanbot" src="../../assets/sanbot_elf_full_block_diagram.png" /></p>
+<p>Which means: if we want to retrofit or replace this tablet, we either need:</p>
+<ul>
+<li>A full firmware (ROM) dump  </li>
+<li>Or at least the relevant system applications responsible for robot communication  </li>
+</ul>
+<p>Preferably the ROM. Because pain is optional.</p>
+<hr />
+<h3 id="plan-of-attack"><a class="toclink" href="../../2026/02/22/on-a-quest-to-find-sanbots-deepest-secrets--part-1/#plan-of-attack">Plan of Attack</a></h3>
+<p>The easiest way to obtain a firmware dump is usually to locate official update packages. Vendors love hosting update files somewhere. Sometimes even publicly. Sometimes accidentally. Sometimes hidden behind 2005-era PHP endpoints.</p>
+<p>While searching online, I found this <a href="https://www.youtube.com/watch?v=xCGGVcfay2U">YouTube video from Simon Burfield</a>, showing how to enable Android developer mode and update the software using PhoenixSuit:</p>
+<p><img alt="Phoenixsuit software screenshot from the upgrade video" src="../../assets/sanbot_phoenixsuit_upgrade.png" /></p>
+<p>PhoenixSuit is an Allwinner flashing tool</p>
+<p>This suggests the tablet uses Allwinner’s flashing mechanism rather than standard Android OTA recovery. Meaning: somewhere, at some point, there must exist a firmware image.</p>
+<p>I <em>could</em> email Sanbot and politely ask for it.</p>
+<p>But where’s the fun in that?</p>
+<hr />
+<h4 id="options-to-consider"><a class="toclink" href="../../2026/02/22/on-a-quest-to-find-sanbots-deepest-secrets--part-1/#options-to-consider">Options to Consider</a></h4>
+<ol>
+<li><strong>Profile the upgrade app via ADB</strong></li>
+<li>Monitor logcat</li>
+<li>Capture HTTP requests</li>
+<li>Identify update endpoints</li>
+<li>
+<p>Try to replicate requests manually</p>
+</li>
+<li>
+<p><strong>Enable developer mode and dump installed APKs</strong></p>
+</li>
+<li>Pull system apps via ADB</li>
+<li>Reverse engineer communication routines</li>
+<li>
+<p>USB-sniff traffic between tablet and robot boards<br />
+   (Decompiling is a last resort. We’re civilized.)</p>
+</li>
+<li>
+<p><strong>Go full hardware mode</strong></p>
+</li>
+<li>Solder a UART adapter</li>
+<li>Access U-Boot</li>
+<li>Dump NAND directly</li>
+<li>If that fails: abuse Allwinner FEL mode and upload custom U-Boot  </li>
+</ol>
+<p>Naturally, I chose chaos.</p>
+<hr />
+<h3 id="profiling-the-upgrade-app"><a class="toclink" href="../../2026/02/22/on-a-quest-to-find-sanbots-deepest-secrets--part-1/#profiling-the-upgrade-app">Profiling the Upgrade App</a></h3>
+<p>Since a full firmware dump would make life easier, I started with the upgrade app.</p>
+<p>Enabling developer mode required connecting the tablet to WiFi. Because apparently you cannot enable developer mode without first saying hello to the mothership.</p>
+<p>After graciously sharing my IP address with the manufacturer, I connected via ADB and ran:</p>
+<div class="highlight"><pre><span></span><code>adb<span class="w"> </span>logcat<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>http
+</code></pre></div>
+<p>Which yielded:</p>
+<div class="highlight"><pre><span></span><code>https://market.sanbotcloud.com:22281/Interface/file_link2.php?mark=SYS&amp;version=v1.10.41.118&amp;...
+https://market.sanbotcloud.com:22281/Interface/update.php?mark=MCU&amp;cond=TOP&amp;...
+https://market.sanbotcloud.com:22281/Interface/update.php?mark=MCU&amp;cond=BOTTOM&amp;...
+</code></pre></div>
+<p>Two interesting endpoints appear:</p>
+<ul>
+<li><code>file_link2.php</code> → likely ROM updates</li>
+<li><code>update.php</code> → likely MCU firmware (main &amp; head boards)</li>
+</ul>
+<p>Promising.</p>
+<hr />
+<h4 id="manual-api-probing"><a class="toclink" href="../../2026/02/22/on-a-quest-to-find-sanbots-deepest-secrets--part-1/#manual-api-probing">Manual API Probing</a></h4>
+<p>Naturally, I tried poking the API directly:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-k<span class="w"> </span><span class="s2">&quot;https://market.sanbotcloud.com:22281/Interface/file_link2.php?mark=SYS&amp;version=v1.10.41.118&amp;...&quot;</span>
+</code></pre></div>
+<p>Response:</p>
+<div class="highlight"><pre><span></span><code>{&quot;result&quot;:&quot;1&quot;,&quot;fileList&quot;:&quot;该版本已是最新版本&quot;}
+</code></pre></div>
+<p>Translation:</p>
+<blockquote>
+<p>“Already the latest version.”</p>
+</blockquote>
+<p>I tried:</p>
+<ul>
+<li>Fake versions</li>
+<li>Older versions</li>
+<li>Modified parameters</li>
+</ul>
+<p>Nothing. No firmware URL. No file list. No jackpot.</p>
+<p>The server was not impressed.</p>
+<hr />
+<h3 id="adding-uart-and-trying-to-dump-rom-via-u-boot"><a class="toclink" href="../../2026/02/22/on-a-quest-to-find-sanbots-deepest-secrets--part-1/#adding-uart-and-trying-to-dump-rom-via-u-boot">Adding UART and Trying to Dump ROM via U-Boot</a></h3>
+<p>Time to escalate.</p>
+<p>This meant soldering wires to the backside of the tablet PCB.</p>
+<p><img alt="Backside of the sanbot A83T tablet PCB" src="../../assets/sanbot_a83t_tablet_backside.jpg" /></p>
+<p>And I was rewarded with a U-Boot log:</p>
+<p><div class="highlight"><pre><span></span><code>U-Boot 2011.09-rc1-00000-g0c9f221-dirty (Jul 08 2017)
+Allwinner Technology
+</code></pre></div>
+Ofcourse, trying the legendary press any key trick seems promising… </p>
+<p><img alt="The legendary uboot press any key meme" src="../../assets/sanbot_uboot_any_key_mem.png" /></p>
+<p>until it wasn’t.</p>
+<p>Boot continued, kernel loaded, Android started… but no interactive U-Boot prompt. No console. No interruption window.</p>
+<p>They locked the UART console in U-Boot.</p>
+<hr />
+<h3 id="fine-we-bring-our-own-u-boot"><a class="toclink" href="../../2026/02/22/on-a-quest-to-find-sanbots-deepest-secrets--part-1/#fine-we-bring-our-own-u-boot">Fine. We Bring Our Own U-Boot.</a></h3>
+<p>If we can’t use theirs, we load ours.</p>
+<p>Using Allwinner FEL mode, I compiled a custom U-Boot build and attempted to access the eMMC:</p>
+<div class="highlight"><pre><span></span><code>=&gt; mmc list
+=&gt; mmc dev 2
+Card did not respond to voltage select! : -110
+</code></pre></div>
+<p>All attempts resulted in:</p>
+<div class="highlight"><pre><span></span><code>MMC: no card present
+</code></pre></div>
+<p>Which is impressive, considering Android clearly booted from <em>something</em>.</p>
+<p>The issue: I didn’t have the original <code>.bin</code> configuration or correct DTS settings. Without the proper DRAM and MMC configuration, U-Boot simply refuses to talk to the eMMC.</p>
+<p>So I had:</p>
+<ul>
+<li>A working Android system</li>
+<li>A custom U-Boot</li>
+<li>Full control over FEL mode</li>
+<li>Zero storage access</li>
+</ul>
+<p>Beautiful.</p>
+<p>At this point, brute-force hardware dumping was becoming an exercise in masochism.</p>
+<p>So I pivoted.</p>
+<hr />
+<h3 id="reverse-engineering-the-apps"><a class="toclink" href="../../2026/02/22/on-a-quest-to-find-sanbots-deepest-secrets--part-1/#reverse-engineering-the-apps">Reverse Engineering the Apps</a></h3>
+<p>If we can’t extract the ROM cleanly, we extract what matters:</p>
+<p>The apps that control the robot.</p>
+<p>Because somewhere inside those APKs lies:</p>
+<ul>
+<li>The USB protocol</li>
+<li>The command structure</li>
+<li>The robot control logic</li>
+<li>And possibly the key to replacing this ancient tablet entirely</li>
+</ul>
+<p>Time to open JADX.</p>
+<p>To be continued…</p>
+    
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://avatars.githubusercontent.com/u/95024850" alt="Victor Hogeweij">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-02-21 00:00:00+00:00">February 21, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../repair-work/" class="md-meta__link">Repair work</a>, 
+              <a href="../robots/" class="md-meta__link">Robots</a>, 
+              <a href="./" class="md-meta__link">Sanbot</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="repairing-a-sanbot-elf-robot-dock"><a class="toclink" href="../../2026/02/21/repairing-a-sanbot-elf-robot-dock/">Repairing a Sanbot Elf Robot Dock</a></h2>
+<p><a href="../../2026/02/18/repairing-a-sanbot-elf-robot-that-doesnt-charge-anymore/">Previously, we repaired the power supply of the Sanbot Elf itself</a>. The robot originally came with a charging dock. Unfortunately, I quickly discovered that the dock supplied with the robot had also failed.</p>
+<p>For reference this is what the dock looks like:</p>
+<p><img alt="Image of the Sanbot Elf Dock" src="../../assets/sanbot_elf_dock.png" /></p>
+<h3 id="lack-of-online-resources"><a class="toclink" href="../../2026/02/21/repairing-a-sanbot-elf-robot-dock/#lack-of-online-resources">Lack of Online-resources</a></h3>
+<p>There is almost no technical information available online about this dock beyond basic specifications such as dimensions, input voltage, and status indicators. However, it likely contains Zigbee and infrared functionality. I suspect the large dome on top is used for IR docking detection, while Zigbee may be used to negotiate a successful docking event before enabling the charging output. This would make sense, as the robot is known to generate noticeable inrush current sparks when directly connected to the adapter.</p>
+<h3 id="disassembly"><a class="toclink" href="../../2026/02/21/repairing-a-sanbot-elf-robot-dock/#disassembly">Disassembly</a></h3>
+<p>Disassembly is straightforward: remove the four screws at the back and carefully separate the front and rear housing halves. As usual with Qihan products, locking tabs are used, so gentle wiggling is required.</p>
+<p>Inside, there will be a small circuitboard which runs the whole dock.</p>
+<p><img alt="Picture of the PCB inside the Sanbot elf dock" src="../../assets/sanbot_dock_inside.jpg" /></p>
+<p>The next step was to power it from a bench power supply and observe its behavior.</p>
+<h3 id="issue-1-tvs-diode-shorting-the-supply-lines"><a class="toclink" href="../../2026/02/21/repairing-a-sanbot-elf-robot-dock/#issue-1-tvs-diode-shorting-the-supply-lines">Issue 1: TVS diode shorting the supply lines</a></h3>
+<p>While powering the robot dock from my lab bench power supply, I noticed again that my 2A limit on my bench supply was reached immediately. </p>
+<p><img alt="Picture of the labbench power supply being shorted" src="../../assets/sanbot_battery_psu_shorting.jpg" /></p>
+<p>Ofcourse, I went on a search trying to find what was shorting my supply. Once again, the culprit turned out to be a diode, this time a TVS diode across the input lines.</p>
+<p>A failed TVS diode was an obvious suspect, as these devices are connected directly across the supply rails to clamp voltage spikes, but when they fail, they often fail short-circuit, effectively placing a direct short across the supply.</p>
+<p>To fix it I desoldered the diode, and left it unpopulated for now:</p>
+<p><img alt="Picture of the desoldered diode" src="../../assets/sanbot_dock_desoldered_diode.png" /> </p>
+<p>Issue fixed right?! Now the device should turn on.... Well nope. Something else is still defective.</p>
+<h3 id="issue-2-missing-33v-line"><a class="toclink" href="../../2026/02/21/repairing-a-sanbot-elf-robot-dock/#issue-2-missing-33v-line">Issue 2: Missing 3.3V line</a></h3>
+<p>Like most microcontroller-based systems, the dock operates from a 3.3V logic supply. Since the input voltage is 19V, it must be stepped down to 3.3V using a switching regulator.  </p>
+<p>The regulator used on the board is an AP6503 synchronous buck converter from Diodes Inc. Pretty good regulator for the money, though the measurements showed that the regulator was not producing the expected 3.3V output. I removed the faulty AP6503 and replaced it with a RECOM 3.3V buck regulator module, which I had available in my parts stock.</p>
+<p><img alt="Picture of the replaced regulator" src="../../assets/sanbot_dock_backside_regulator.jpg" /></p>
+<p>Now the device powers up and connects to the robot.</p>
+<h3 id="conclusion"><a class="toclink" href="../../2026/02/21/repairing-a-sanbot-elf-robot-dock/#conclusion">Conclusion</a></h3>
+<p>A shorted TVS diode across the input and a failed 3.3V regulator prevented the dock from powering up. Removing the failed TVS diode and replacing the regulator restored full functionality to the dock.</p>
+    
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://avatars.githubusercontent.com/u/95024850" alt="Victor Hogeweij">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-02-18 00:00:00+00:00">February 18, 2026</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../repair-work/" class="md-meta__link">Repair work</a>, 
+              <a href="../robots/" class="md-meta__link">Robots</a>, 
+              <a href="./" class="md-meta__link">Sanbot</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              6 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="repairing-a-sanbot-elf-robot-that-doesnt-charge-anymore"><a class="toclink" href="../../2026/02/18/repairing-a-sanbot-elf-robot-that-doesnt-charge-anymore/">Repairing a Sanbot Elf Robot That Doesn’t Charge Anymore</a></h2>
+<p>As some of you might know, I’ve always had an interest in repairing old and obscure hardware. One of my contacts approached me and mentioned he wanted to get rid of the robot because it no longer charged. Of course, I told him I’d be very interested in taking a look at it. At the end it turned out to be a shorted reverse-protection diode on the board. I am happy I could fix this bot easily with a new 5-cent diode.</p>
+<h3 id="background"><a class="toclink" href="../../2026/02/18/repairing-a-sanbot-elf-robot-that-doesnt-charge-anymore/#background">Background</a></h3>
+<p>The Sanbot Elf is a Chinese humanoid robot from the company Qihan, launched in 2017. It features a 3D camera, HD camera, an Android tablet (which runs painfully slow due to a mediocre 2018 SoC — the Allwinner A83), animated eyes, a speech engine, LEDs, and motors throughout the body.</p>
+<p><img alt="Picture of the Sanbot Elf, a Chinese robot launched in 2017 for around €10,000" src="../../assets/sanbot_elf.png" /></p>
+<h3 id="prior-work"><a class="toclink" href="../../2026/02/18/repairing-a-sanbot-elf-robot-that-doesnt-charge-anymore/#prior-work">Prior Work</a></h3>
+<p>Before getting my hands on the robot, I searched the internet for information about the hardware. It didn’t take long before I stumbled upon this great <a href="https://github.com/Vidicon/sanbot_elf_hacking">reverse engineering project by Vidicon and Matthijsfh</a>. The repository contains a reverse-engineered block diagram and newly written firmware for the main board and head board.</p>
+<p><img alt="Block diagram of mainboard from the sanbot_elf_hacking repository" src="../../assets/sanbot_elf_re_manboard_conn.png" /></p>
+<p>This gave me the first clue that the Sanbot likely contains a separate power board supplying the system with 12V. Since the robot is mobile and powered by a 12V system, it likely uses a 4S Li-ion battery pack. From the sanbot_elf_hacking repository, it becomes clear that the battery communicates its status over SMBus. That brought back memories of medical battery packs that use a similar system, often with a rather annoying undervoltage lockout mechanism. Once triggered, that lockout can permanently disable the battery. Luckily, the IC used in the BMS is a BQ3055, a 2–4 series Li-ion battery pack manager with an integrated fuel gauge, which does not appear to implement this UVLO protection.</p>
+<p>While digging a bit deeper, I also found <a href="https://amslaurea.unibo.it/id/eprint/19120/1/lirussi_igor_tesi.pdf">this useful block diagram from Igor Lirussi’s thesis</a>, which provides a more complete overview of the entire system.</p>
+<p><img alt="Full system block diagram of the sanbot elf" src="../../assets/sanbot_elf_full_block_diagram.png" /></p>
+<p>This block-diagram gives away that it does everything over USB with easy to debug protocols. It gave me hope that we might eventually be able to upcycle the robot by replacing the tablet with our own tablet or computer, running custom software that communicates with the rest of the system.</p>
+<h3 id="disassembling"><a class="toclink" href="../../2026/02/18/repairing-a-sanbot-elf-robot-that-doesnt-charge-anymore/#disassembling">Disassembling</a></h3>
+<p>The battery compartment at the back is secured with a single screw. After removing it, you can unscrew the full back cover. Afterwards you can try to wiggle/pull it off. It has locking tabs, so it might feel a bit uncomfortable trying to get it off.</p>
+<p><img alt="Battery compartment of the Sanbot Elf" src="../../assets/sanbot_battery_compartment.jpg" /></p>
+<p>When it's off you will find two circuit boards at the back. The top one is the Mainboard and the other one is the power board.
+<img alt="Picture of the circuitboards on the back (main- &amp; powerboard)" src="../../assets/sanbot_elf_disassembled.jpg" /></p>
+<h3 id="troubleshooting-the-battery"><a class="toclink" href="../../2026/02/18/repairing-a-sanbot-elf-robot-that-doesnt-charge-anymore/#troubleshooting-the-battery">Troubleshooting the battery</a></h3>
+<p>First thing that got my attention is the battery. First I checked the voltage, which seemed to be fine (@15.58V means ~40% SOC):
+<img alt="Measurement of battery voltage using multimeter" src="../../assets/sanbot_battery_voltage.jpg" /></p>
+<p>That meant that the BMS is allowing to discharge the battery. Good! Maybe it does not accept charging, as the battery might be unbalanced or any other fault event has occurred. So let's try to read it using I2C...</p>
+<p>As we have found from earlier research, we know that it has a BQ3055 charge-ic. I really want to read it out using an Arduino library, as writing my own library would be time-consuming. So I could unfornately not find a direct software library for this ic, however it's <a href="https://github.com/sparkfun/SparkFun_BQ40Z50_Battery_Manager_Arduino_Library">newer sibling the BQ40Z50 does have a library</a>. When checking the datasheets and application notes, not much seems to have changed, even the addresses match. So this must work! Right?</p>
+<p>Astalavista, I am in!</p>
+<p><img alt="Serial monitor output of the ESP32 reading out Sanbot's battery" src="../../assets/sanbot_elf_battery_serialmon.png" /></p>
+<p>Using a cheap ESP32, I had laying around and a simple arduino sketch, I managed to read out the battery.</p>
+<p><img alt="Picture of the battery connected to an ESP32 reading it out" src="../../assets/sanbot_battery_esp32.jpg" /></p>
+<p>Link to the battery readout script:</p>
+<p><a download="download" href="../../assets/sanbot_battery_readout_script.ino">sanbot_battery_readout_script.ino</a></p>
+<p>From the serial monitor output it became clear that although the battery is not in a good state (cell imbalance of &gt;0.5V). Such an imbalance is problematic, as it increases stress on the weaker cell and can accelerate degradation or, in worst cases, lead to unsafe operating conditions. Interestingly and somewhat concerning, it does try to charge, as the charging mosfets are not blocked.</p>
+<p>This suggested that even if the battery were replaced, the issue might still lie within the Sanbot’s internal charger circuitry.</p>
+<h3 id="troubleshooting-the-power-board"><a class="toclink" href="../../2026/02/18/repairing-a-sanbot-elf-robot-that-doesnt-charge-anymore/#troubleshooting-the-power-board">Troubleshooting the power board</a></h3>
+<p>The power board is located underneath the mainboard and consists of a battery-charger ic (BQ2461X) and two synchronous 12V buck converters (LM25116).</p>
+<p><img alt="Sanbot power board" src="../../assets/sanbot_elf_power_board.jpg" /></p>
+<p>When plugging in my lab-bench power supply to test the power board, I noticed it completely tripped my maximum current (at 2A). </p>
+<p><img alt="Sanbot charger shorting" src="../../assets/sanbot_battery_psu_shorting.jpg" /></p>
+<p>This indicated a fault on the board. Since the charger IC itself was not heating up, the problem likely had to be close to the power input stage. I noticed this reverse-protection diode is letting current flow both ways and generating heat?! </p>
+<p>Measuring the diode in-circuit showed nearly zero resistance in both directions, indicating it had shorted internally. Since this diode sits directly on the input power path, a short effectively placed the supply across ground, explaining the immediate 2A current limit on the bench supply.</p>
+<p><img alt="Sanbot power board diode measurement" src="../../assets/sanbot_power_board_diode_measurement.jpg" /></p>
+<p>I removed the faulty diode and replaced it with a spare from my parts bin. After reassembly, the board functioned normally again</p>
+<p><img alt="Sanbot power board old diode near new one (which has been soldered)" src="../../assets/sanbot_power_board_diode.jpg" /></p>
+<p>Guess what?! It showed the charge symbol! Mission accomplished.</p>
+<p><img alt="Sanbot battery charging once again!" src="../../assets/sanbot_battery_charge_ok.jpg" /></p>
+<p>P.S. The picture of bot charging is old picture, that's why SOC does not match serial monitor output</p>
+<h3 id="conclusion"><a class="toclink" href="../../2026/02/18/repairing-a-sanbot-elf-robot-that-doesnt-charge-anymore/#conclusion">Conclusion</a></h3>
+<p>Due to a shorted reverse-protection diode on power board the robot wouldn't charge anymore. It was easily repaired with a new 5-cent diode. Although the robot now charges, the battery pack shows significant imbalance (&gt;0.5 V delta), which suggests aging cells. Replacement is recommended for long-term reliability.</p>
+    
+    
+  </div>
+</article>
+      
+      
+        
+          
+
+
+
+<nav class="md-pagination">
+  
+</nav>
+        
+      
+    </div>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../robots/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Robots">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Robots
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../archive/2026/" class="md-footer__link md-footer__link--next" aria-label="Next: 2026">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2026
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1586 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Bringing up the display pipeline under mainline Linux, from a blank screen to a fully initialised DRM stack, one deferred probe at a time.
+">
+      
+      
+      
+      
+        <link rel="prev" href="../../16/on-a-quest-to-find-sanbots-deepest-secrets--part-6-dumping-the-build-configuration-of-the-android-rom/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/ODS_thumbnail.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>On a Quest to find Sanbot's deepest secrets – Part 7 (Bringing up the display pipeline under mainline Linux) - OpenDutchSolutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/ods.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-hardware" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="OpenDutchSolutions" class="md-header__button md-logo" aria-label="OpenDutchSolutions" data-md-component="logo">
+      <img id="logo_dark_mode" src="../../../../../ODS_thumbnail.svg" alt="logo">
+<img id="logo_light_mode" src="../../../../../ODS_thumbnail_white.svg" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenDutchSolutions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              On a Quest to find Sanbot's deepest secrets – Part 7 (Bringing up the display pipeline under mainline Linux)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Welcome
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../projects/open_source/sanbot/sanbot_hardware_overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../about%20us/about_us/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  About us
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="OpenDutchSolutions" class="md-nav__button md-logo" aria-label="OpenDutchSolutions" data-md-component="logo">
+      <img id="logo_dark_mode" src="../../../../../ODS_thumbnail.svg" alt="logo">
+<img id="logo_light_mode" src="../../../../../ODS_thumbnail_white.svg" alt="logo">
+    </a>
+    OpenDutchSolutions
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/repair-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repair work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/reverse-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reverse engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/robots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robots
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/sanbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sanbot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open source projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Open source projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../projects/open_source/sanbot/sanbot_hardware_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sanbot Elf hardware overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About us
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About us
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about%20us/about_us/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About OpenDutchSolutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The hardware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-the-device-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing the device tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-kconfig-maze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Kconfig maze
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-dtb-placement-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The DTB placement problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-panel-compatible-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The panel compatible string
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-the-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking the hardware
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-one-missing-piece" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The one missing piece
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-state-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current state summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://avatars.githubusercontent.com/u/95024850" alt="Victor Hogeweij">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          <a href="https://github.com/Hoog-V">Victor Hogeweij</a>
+                        
+                      </strong>
+                      <br>
+                      Creator
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-03-29 00:00:00+00:00" class="md-ellipsis">March 29, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/reverse-engineering/">Reverse engineering</a>, 
+                              <a href="../../../../category/robots/">Robots</a>, 
+                              <a href="../../../../category/sanbot/">Sanbot</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              7 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+
+
+  <h1>On a Quest to find Sanbot's deepest secrets – Part 7 (Bringing up the display pipeline under mainline Linux)</h1>
+
+<p><a href="../../16/on-a-quest-to-find-sanbots-deepest-secrets--part-6-dumping-the-build-configuration-of-the-android-rom/">Last time we extracted the vendor FEX configuration</a>  and finally had
+all the hardware parameters we needed. Now it was time to actually use them.</p>
+<p>The goal: get the internal 1920×1200 display working under mainline Linux 6.19.</p>
+<p>Spoiler: it took a lot longer than expected. But we got there. Mostly.</p>
+<div class="admonition warning annotate">
+<p class="admonition-title">Legal note</p>
+<p>This research was conducted on hardware legally owned by the author.
+All analysis is performed for the purposes of interoperability,
+repair, and educational research.</p>
+<p>No proprietary firmware or copyrighted software
+is redistributed on this site.</p>
+</div>
+<hr />
+<h2 id="the-hardware">The hardware</h2>
+<p>Just to recap what we are dealing with:</p>
+<ul>
+<li><strong>SoC</strong>: Allwinner A83T (8× Cortex-A7)</li>
+<li><strong>Display</strong>: 1920×1200 parallel RGB → <strong>SSD2828</strong> MIPI bridge → panel</li>
+<li><strong>TCON0</strong>: parallel RGB output at 150 MHz pixel clock</li>
+<li><strong>Backlight</strong>: PWM channel 0 on PD28, enable on PD29</li>
+<li><strong>SSD2828 SPI</strong>: SCLK=PE5, MOSI=PE6, CS=PE7, RESET=PE9</li>
+</ul>
+<p>The SSD2828 is a bridge chip. TCON0 outputs raw parallel RGB, the SSD2828
+converts it to MIPI DSI, and the panel receives MIPI. Without initialising the
+SSD2828 over SPI, the panel sees nothing.</p>
+<p>This detail will become very relevant later.</p>
+<hr />
+<h2 id="writing-the-device-tree">Writing the device tree</h2>
+<p>The first task was translating the FEX parameters into a proper Linux device tree.</p>
+<p>This is not as straightforward as it sounds. The FEX format is flat.
+The Linux DRM pipeline is a graph of connected components:</p>
+<div class="highlight"><pre><span></span><code>DE2 mixer → TCON0 → [endpoint] → panel-dpi → backlight (PWM)
+</code></pre></div>
+<p>Every link in that graph has to be expressed as a <code>port</code> / <code>endpoint</code> pair
+in the DTS. Get one wrong and the whole thing silently fails.</p>
+<p>The first few iterations produced this delightful message:</p>
+<div class="highlight"><pre><span></span><code>sun4i-drm display-engine: No panel or bridge found... RGB output disabled
+</code></pre></div>
+<p>To debug what was actually in the compiled DTB, the kernel's own <code>dtc</code> was
+used (the system one couldn't decompile the blob at all):</p>
+<div class="highlight"><pre><span></span><code>output/build/linux-6.19.8/scripts/dtc/dtc<span class="w"> </span>-I<span class="w"> </span>dtb<span class="w"> </span>-O<span class="w"> </span>dts<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/images/sun8i-a83t-sanbot.dtb<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="s1">&#39;lcd-controller@1c0c000&#39;</span>
+</code></pre></div>
+<p>Which revealed:</p>
+<div class="highlight"><pre><span></span><code>lcd-controller@1c0c000 {
+    ...
+    ports {
+    };   ← empty!
+};
+</code></pre></div>
+<p>The <code>tcon0_out</code> endpoint was missing from the compiled DTB entirely. After
+investigation it turned out that DTC was silently dropping <code>endpoint@0</code> with
+<code>reg = &lt;0&gt;</code> inside <code>tcon0_out</code> due to an address-cells conflict. The node
+was discarded without any warning.</p>
+<p>The fix was to drop the <code>@0</code> and <code>reg</code> entirely, a port with a single
+endpoint does not need addressing:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&amp;</span><span class="nf">tcon0_out</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nl">tcon0_out_panel</span><span class="p">:</span><span class="w"> </span><span class="nf">endpoint</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">remote-endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">panel_input</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>One silent DTC footgun, filed away.</p>
+<hr />
+<h2 id="the-kconfig-maze">The Kconfig maze</h2>
+<p>With the DTS correct, the next problem was getting the drivers compiled in.</p>
+<p>The A83T uses <strong>Display Engine 2</strong> (DE2). The relevant Kconfig symbol is
+<code>SUNXI_DE2</code>, which is a hidden bool, no prompt, cannot be set directly.
+It is only auto-selected by <code>MACH_SUNXI_H3_H5</code> and <code>MACH_SUN50I</code>.</p>
+<p>Not by <code>MACH_SUN8I_A83T</code>.</p>
+<p>Confirming this in menuconfig by searching for <code>DE2</code>:</p>
+<div class="highlight"><pre><span></span><code>Symbol: SUNXI_DE2 [=n]
+  Depends on: ARM &amp;&amp; ARCH_SUNXI
+  Selected by [n]:
+    - MACH_SUNXI_H3_H5
+    - MACH_SUN50I
+</code></pre></div>
+<p>The fix was a one-line patch to <code>arch/arm/mach-sunxi/Kconfig</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">config</span><span class="w"> </span>MACH_SUN8I_A83T
+<span class="w">    </span><span class="nb">bool</span><span class="w"> </span><span class="s2">&quot;sun8i (Allwinner A83T)&quot;</span>
+<span class="w">    </span>...
+<span class="w">    </span><span class="k">select</span><span class="w"> </span>SUNXI_DE2<span class="w">        </span><span class="c1"># ← add this</span>
+</code></pre></div>
+<p>With <code>SUNXI_DE2</code> selected, <code>VIDEO_DE2</code> has <code>default y</code> and activates
+automatically. But that only applies to the U-Boot side. It turned out
+<code>sunxi_de2.c</code> in U-Boot was written exclusively for the H3/H5/H6 CCM layout.
+The A83T has a completely different clock controller, so the driver simply
+fails to compile:</p>
+<div class="highlight"><pre><span></span><code>drivers/video/sunxi/sunxi_de2.c: In function &#39;sunxi_de2_composer_init&#39;:
+sunxi_de2.c:47: error: implicit declaration of function &#39;clock_set_pll10&#39;
+sunxi_de2.c:50: error: &#39;struct sunxi_ccm_reg&#39; has no member named &#39;de_clk_cfg&#39;
+</code></pre></div>
+<p>After staring at the error messages for a while the conclusion was clear:
+<strong>U-Boot display is a dead end for the A83T</strong>. Skip it entirely and do
+everything in Linux where the driver support is complete.</p>
+<hr />
+<h2 id="the-dtb-placement-problem">The DTB placement problem</h2>
+<p>Buildroot was configured with both <code>BR2_LINUX_KERNEL_INTREE_DTS_NAME</code> and
+<code>BR2_LINUX_KERNEL_CUSTOM_DTS_PATH</code> set at the same time:</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;INTREE_DTS|CUSTOM_DTS&#39;</span><span class="w"> </span>.config
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>BR2_LINUX_KERNEL_INTREE_DTS_NAME=&quot;sun8i-a83t-sanbot&quot;
+BR2_LINUX_KERNEL_CUSTOM_DTS_PATH=&quot;dts/sun8i-a83t-sanbot.dts&quot;
+</code></pre></div>
+<p>Both set simultaneously means Buildroot compiles the custom DTS from the root
+<code>arch/arm/boot/dts/</code> directory, without access to the DTSI files in
+<code>allwinner/</code>. The compiled DTB was technically valid. As it had the  correct magic bytes, a
+plausible size. But was missing the entire DE2 display pipeline because the
+DTSI nodes never made it in.</p>
+<p>Confirmed by inspecting the compiled result:</p>
+<div class="highlight"><pre><span></span><code>output/build/linux-6.19.8/scripts/dtc/dtc<span class="w"> </span>-I<span class="w"> </span>dtb<span class="w"> </span>-O<span class="w"> </span>dts<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/images/sun8i-a83t-sanbot.dtb<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;display-engine|status.*okay|1100000|mixer&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>display-engine {
+    compatible = &quot;allwinner,sun8i-a83t-display-engine&quot;;
+    status = &quot;okay&quot;;
+    mixer@1100000 { ...
+</code></pre></div>
+<p>The <code>display-engine</code> node was correct once the DTS was placed inside
+<code>arch/arm/boot/dts/allwinner/</code> and the intree name was set to
+<code>allwinner/sun8i-a83t-sanbot</code>. The fix:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>dts/sun8i-a83t-sanbot.dts<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/build/linux-6.19.8/arch/arm/boot/dts/allwinner/
+
+<span class="c1"># Fix includes (no longer need the allwinner/ prefix)</span>
+sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|#include &quot;allwinner/sun8i-a83t.dtsi&quot;|#include &quot;sun8i-a83t.dtsi&quot;|&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/build/linux-6.19.8/arch/arm/boot/dts/allwinner/sun8i-a83t-sanbot.dts
+sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|#include &quot;allwinner/axp81x.dtsi&quot;|#include &quot;axp81x.dtsi&quot;|&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/build/linux-6.19.8/arch/arm/boot/dts/allwinner/sun8i-a83t-sanbot.dts
+
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;dtb-$(CONFIG_MACH_SUN8I) += sun8i-a83t-sanbot.dtb&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/build/linux-6.19.8/arch/arm/boot/dts/allwinner/Makefile
+
+make<span class="w"> </span>-C<span class="w"> </span>output/build/linux-6.19.8<span class="w"> </span><span class="nv">ARCH</span><span class="o">=</span>arm<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">CROSS_COMPILE</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/output/host/bin/arm-buildroot-linux-gnueabihf-<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>allwinner/sun8i-a83t-sanbot.dtb
+</code></pre></div>
+<p>Lesson: never set both <code>INTREE_DTS_NAME</code> and <code>CUSTOM_DTS_PATH</code> at the same
+time in Buildroot. Pick one.</p>
+<hr />
+<h2 id="the-panel-compatible-string">The panel compatible string</h2>
+<p>With the DTS and DTB placement sorted, the next boot showed:</p>
+<div class="highlight"><pre><span></span><code>sun4i-drm display-engine: bound 1100000.mixer
+sun4i-drm display-engine: bound 1200000.mixer
+sun4i-drm display-engine: bound 1c0c000.lcd-controller
+[drm] Initialized sun4i-drm 1.0.0 for display-engine on minor 0
+</code></pre></div>
+<p>Progress. But tcon0 (<code>lcd-controller@1c0c000</code>) was still stuck in deferred
+probe. The panel had no driver bound despite <code>CONFIG_DRM_PANEL_SIMPLE=y</code>.</p>
+<p>Forcing a bind attempt to see the actual error:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>panel<span class="w"> </span>&gt;<span class="w"> </span>/sys/bus/platform/drivers/panel-simple/bind
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sh: write error: No such device
+</code></pre></div>
+<p><code>-ENODEV</code>. The driver rejected the device entirely. Checking whether
+<code>simple-panel</code> was in the driver's compatibility table:</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s1">&#39;simple-panel&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/build/linux-6.19.8/drivers/gpu/drm/panel/panel-simple.c
+</code></pre></div>
+<p>No output. It is not there.</p>
+<p>Searching for the correct compatible:</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s1">&#39;&quot;panel&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>output/build/linux-6.19.8/drivers/gpu/drm/panel/panel-simple.c<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>.compatible = &quot;panel-dpi&quot;,
+</code></pre></div>
+<p>In mainline Linux 6.19, the correct compatible for a custom-timing parallel
+RGB panel is <code>panel-dpi</code>. It reads its timing from the <code>panel-timing</code> subnode
+and requires a <code>power-supply</code> property.</p>
+<p>Change two lines in the DTS:</p>
+<div class="highlight"><pre><span></span><code><span class="nl">panel</span><span class="p">:</span><span class="w"> </span><span class="nf">panel</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;panel-dpi&quot;</span><span class="p">;</span><span class="w">       </span><span class="cm">/* was &quot;simple-panel&quot; */</span>
+<span class="w">    </span><span class="n">power-supply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">reg_dcdc1</span><span class="o">&gt;</span><span class="p">;</span><span class="w">    </span><span class="cm">/* required by panel-dpi */</span>
+<span class="w">    </span><span class="p">...</span>
+</code></pre></div>
+<p>Next boot:</p>
+<div class="highlight"><pre><span></span><code>panel-simple panel: Specify missing bus_format
+panel-simple panel: Expected bpc in {6,8} but got: 0
+sun4i-drm display-engine: bound 1c0c000.lcd-controller
+[drm] Initialized sun4i-drm 1.0.0 for display-engine on minor 0
+</code></pre></div>
+<p>The warnings about <code>bus_format</code> and <code>bpc</code> are fixable by adding
+<code>bus-format = &lt;0x100a&gt;</code> and <code>bpc = &lt;8&gt;</code> to the panel node. But the important
+part: <strong>all five components are now bound</strong> and <code>/dev/dri/card0</code> exists.</p>
+<hr />
+<h2 id="checking-the-hardware">Checking the hardware</h2>
+<p>With <code>modetest</code> from <code>libdrm-tests</code>, listing connectors:</p>
+<div class="highlight"><pre><span></span><code>modetest<span class="w"> </span>-M<span class="w"> </span>sun4i-drm<span class="w"> </span>-c
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>53      0       connected       Unknown-1       0x0             1       52
+  modes:
+    #0 1920x1200 59.96 1920 1948 1964 2044 1200 1200 1208 1224 150000
+        flags: nhsync, nvsync; type: preferred, driver
+</code></pre></div>
+<p>The connector reports as <strong>connected</strong> with exactly the timing from the FEX
+file. The DRM driver correctly parsed the <code>panel-timing</code> node.</p>
+<p>Before setting a mode, checking the panel enable GPIO state:</p>
+<div class="highlight"><pre><span></span><code>mount<span class="w"> </span>-t<span class="w"> </span>debugfs<span class="w"> </span>debugfs<span class="w"> </span>/sys/kernel/debug
+cat<span class="w"> </span>/sys/kernel/debug/gpio<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">228</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>gpio-228 (enable) out lo    ← PH4 panel enable is LOW
+</code></pre></div>
+<p>Setting the mode:</p>
+<div class="highlight"><pre><span></span><code>modetest<span class="w"> </span>-M<span class="w"> </span>sun4i-drm<span class="w"> </span>-s<span class="w"> </span><span class="m">53</span>:1920x1200
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>setting mode 1920x1200-59.96Hz on connectors 53, crtc 51
+</code></pre></div>
+<p>Checking again immediately after:</p>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/sys/kernel/debug/gpio<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">228</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>gpio-228 (enable) out hi    ← PH4 panel enable is now HIGH
+</code></pre></div>
+<p>TCON0 is now clocking out pixels at 150 MHz. The backlight:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/backlight/backlight/bl_power
+<span class="nb">echo</span><span class="w"> </span><span class="m">10</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/class/backlight/backlight/brightness
+</code></pre></div>
+<p>The backlight illuminates. The PWM is running. The panel enable is high.</p>
+<hr />
+<h2 id="the-one-missing-piece">The one missing piece</h2>
+<p>Everything works. Except the screen stays blank.</p>
+<p>The reason is the <strong>SSD2828 bridge chip</strong>.</p>
+<p>TCON0 outputs parallel RGB. The SSD2828 sits between TCON0 and the MIPI
+panel and converts the signal. But the SSD2828 needs to be initialised over
+SPI before it will pass anything through.</p>
+<p>The SPI lines (PE5/PE6/PE7) and reset (PE9) are all confirmed in the FEX
+dump. The vendor driver is called <code>qihan_lcd</code> and the init sequence is
+compiled into the vendor <code>disp.ko</code> kernel module found on the Android system
+partition:</p>
+<div class="highlight"><pre><span></span><code>strings<span class="w"> </span>/mnt/android/vendor/modules/disp.ko<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>qihan
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>qihan_lcd
+qihan_panel.c
+drivers/video/sunxi/disp2/disp/lcd/qihan_panel.c
+</code></pre></div>
+<p>Extracting and reimplementing that init sequence is the next step.</p>
+<p>The full display pipeline is working. The bridge just needs its coffee.</p>
+<hr />
+<h2 id="current-state-summary">Current state summary</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DE2 mixer</td>
+<td>✅ bound</td>
+</tr>
+<tr>
+<td>TCON0 (lcd-controller)</td>
+<td>✅ bound</td>
+</tr>
+<tr>
+<td>HDMI (tcon1)</td>
+<td>✅ bound</td>
+</tr>
+<tr>
+<td>panel-dpi driver</td>
+<td>✅ bound</td>
+</tr>
+<tr>
+<td>PWM backlight</td>
+<td>✅ working</td>
+</tr>
+<tr>
+<td>PH4 panel enable</td>
+<td>✅ high after modetest</td>
+</tr>
+<tr>
+<td>PL10 panel power</td>
+<td>✅ high (r_pio)</td>
+</tr>
+<tr>
+<td>SSD2828 SPI init</td>
+<td>❌ not yet implemented</td>
+</tr>
+<tr>
+<td>Pixels on screen</td>
+<td>❌ blocked by SSD2828</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="whats-next">What's next</h2>
+<p>The <code>qihan_panel.c</code> source path appears in the strings of <code>disp.ko</code>. The init
+sequence is compiled in. The next task is extracting it, understanding the
+SSD2828 register layout, and reimplementing it as either a small Linux utility
+or a proper DRM bridge driver.</p>
+<p>After that, the screen should finally show something.</p>
+<p><em>To be continued…</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="opendutchsolutions/site"
+        data-repo-id="R_kgDORXLuVg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDORXLuVs4C3EpZ"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../16/on-a-quest-to-find-sanbots-deepest-secrets--part-6-dumping-the-build-configuration-of-the-android-rom/" class="md-footer__link md-footer__link--prev" aria-label="Previous: On a Quest to find Sanbot&#39;s deepest secrets – Part 6 (Dumping the build configuration of the android rom)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                On a Quest to find Sanbot's deepest secrets – Part 6 (Dumping the build configuration of the android rom)
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
